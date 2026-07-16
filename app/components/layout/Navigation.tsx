@@ -7,18 +7,16 @@ import { usePathname } from "next/navigation";
 import ThemeToggle from "../ui/ThemeToggle";
 import MagneticWrapper from "@/app/components/animations/MagneticWrapper";
 import { Home, Briefcase, User, Mail } from "lucide-react";
-import { useLanguage } from "@/app/lib/i18n/LanguageProvider";
+
+const navItems = [
+  { label: "Home", href: "/", icon: Home },
+  { label: "About", href: "/about", icon: User },
+  { label: "Work", href: "/projects", icon: Briefcase },
+  { label: "Contact", href: "/contact", icon: Mail },
+] as const;
 
 export default function Navigation() {
   const pathname = usePathname();
-  const { language, setLanguage, t } = useLanguage();
-
-  const navItems = [
-    { label: t.navigation.home, href: "/", icon: Home },
-    { label: t.navigation.about, href: "/about", icon: User },
-    { label: t.navigation.work, href: "/projects", icon: Briefcase },
-    { label: t.navigation.contact, href: "/contact", icon: Mail },
-  ];
 
   return (
     <motion.nav
@@ -53,34 +51,6 @@ export default function Navigation() {
             </MagneticWrapper>
           );
         })}
-
-        <div className="flex shrink-0 items-center gap-1 rounded-full border border-white/20 bg-white/5 px-1 py-1">
-          <span className="sr-only">{t.navigation.langLabel}</span>
-          <button
-            type="button"
-            onClick={() => setLanguage("en")}
-            className={cn(
-              "rounded-full px-2.5 py-1 text-xs font-semibold tracking-wide transition-colors",
-              language === "en"
-                ? "bg-white/15 text-white"
-                : "text-zinc-400 hover:text-white",
-            )}
-          >
-            EN
-          </button>
-          <button
-            type="button"
-            onClick={() => setLanguage("np")}
-            className={cn(
-              "rounded-full px-2.5 py-1 text-xs font-semibold tracking-wide transition-colors",
-              language === "np"
-                ? "bg-white/15 text-white"
-                : "text-zinc-400 hover:text-white",
-            )}
-          >
-            NP
-          </button>
-        </div>
 
         <span className="mx-1 hidden h-6 w-px shrink-0 bg-white/20 dark:bg-white/30 sm:block" />
 

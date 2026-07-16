@@ -5,8 +5,8 @@ export interface Project {
   longDescription: string;
   image: string;
   tags: string[];
-  liveUrl?: string;
-  githubUrl?: string;
+  liveUrl?: string | null;
+  githubUrl?: string | null;
   featured: boolean;
   storyPoints: string[];
   xray: {

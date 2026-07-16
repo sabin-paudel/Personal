@@ -12,15 +12,14 @@ import {
 } from "lucide-react";
 
 import Tooltip from "@/app/components/ui/Tooltip";
+import OptimizedImage from "@/app/components/ui/OptimizedImage";
 import { SOCIAL_LINKS } from "@/app/lib/constants/social";
 import { LOCATION } from "@/app/lib/constants/location";
 import { tooltips, type TooltipKey } from "@/app/lib/data/tooltips";
-import { useLanguage } from "@/app/lib/i18n/LanguageProvider";
 
 export default function Contact() {
-  const { language, t } = useLanguage();
-  const city = language === "np" ? "पोखरा" : LOCATION.city;
-  const country = language === "np" ? "नेपाल" : LOCATION.country;
+  const city = LOCATION.city;
+  const country = LOCATION.country;
 
   return (
     <section id="contact" className="relative px-4 py-16 sm:px-6 lg:py-20">
@@ -30,39 +29,101 @@ export default function Contact() {
       />
 
       <div className="mx-auto max-w-7xl space-y-10">
-        <header className="max-w-3xl space-y-5">
+        <header className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+          <div className="max-w-3xl space-y-5">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="section-kicker"
+            >
+              <Sparkles className="h-3.5 w-3.5 text-brand-signal" />
+              <span>Let’s connect</span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-[clamp(3rem,9vw,6.5rem)] font-semibold leading-[0.92] tracking-tight text-white"
+            >
+              <span className="block">Let’s build</span>
+              <span className="block text-gradient">something useful</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="max-w-2xl text-pretty text-base leading-7 text-white/72 sm:text-lg"
+            >
+              If you need a frontend developer for React, Next.js, or TypeScript
+              work, send me a message.
+              <br />
+              I’m open to freelance work, collaborations, and thoughtful product
+              builds.
+            </motion.p>
+          </div>
+
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="section-kicker"
+            transition={{ duration: 0.9, delay: 0.1 }}
+            className="relative min-h-96 overflow-hidden rounded-4xl border border-white/10 bg-black/20 sm:min-h-[28rem] lg:min-h-[32rem]"
           >
-            <Sparkles className="h-3.5 w-3.5 text-brand-signal" />
-            <span>{t.contact.connectBadge}</span>
+            <OptimizedImage
+              src="/contact.png"
+              alt="Sabin Paudel portrait"
+              fill
+              priority
+              className="absolute inset-0 z-0 object-cover object-[50%_18%]"
+            />
+
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 z-10 bg-[linear-gradient(180deg,rgba(5,5,5,0.08)_0%,rgba(5,5,5,0.18)_36%,rgba(5,5,5,0.7)_100%)]"
+            />
+
+            <div className="absolute inset-x-0 bottom-0 z-20 p-5 sm:p-6">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div className="rounded-full border border-white/10 bg-black/35 px-3 py-1.5 text-xs uppercase tracking-[0.24em] text-white/70 backdrop-blur-md">
+                  Product-minded frontend craft
+                </div>
+                <div className="rounded-full border border-white/10 bg-black/35 px-3 py-1.5 text-xs font-medium text-white/70 backdrop-blur-md">
+                  Human pulse
+                </div>
+              </div>
+
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                <div className="rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur-md">
+                  <div className="flex items-center gap-2 text-brand-signal">
+                    <Sparkles className="h-4 w-4" />
+                    <span className="text-xs uppercase tracking-[0.24em]">
+                      React + Next.js
+                    </span>
+                  </div>
+                  <p className="mt-3 text-sm leading-6 text-white/76">
+                    Modern web applications with a calm, product-minded feel.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur-md">
+                  <div className="flex items-center gap-2 text-brand-primary">
+                    <MapPin className="h-4 w-4" />
+                    <span className="text-xs uppercase tracking-[0.24em]">
+                      Pokhara, Nepal
+                    </span>
+                  </div>
+                  <p className="mt-3 text-sm leading-6 text-white/76">
+                    Available for freelance work and thoughtful collaborations.
+                  </p>
+                </div>
+              </div>
+            </div>
           </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-[clamp(3rem,9vw,6.5rem)] font-semibold leading-[0.92] tracking-tight text-white"
-          >
-            <span className="block">{t.contact.headingLine1}</span>
-            <span className="block text-gradient">{t.contact.headingLine2}</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="max-w-2xl text-pretty text-base leading-7 text-white/72 sm:text-lg"
-          >
-            {t.contact.introLine1}
-            <br />
-            {t.contact.introLine2}
-          </motion.p>
         </header>
 
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
@@ -77,18 +138,19 @@ export default function Contact() {
                 <div className="space-y-3">
                   <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs uppercase tracking-[0.24em] text-white/55">
                     <Mail className="h-3.5 w-3.5 text-brand-primary" />
-                    {t.contact.dropLineTitle}
+                    Drop me a line
                   </div>
                   <h2 className="text-2xl font-semibold text-white sm:text-3xl">
-                    {t.contact.dropLineTitle}
+                    Drop me a line
                   </h2>
                   <p className="max-w-2xl text-sm leading-7 text-white/72 sm:text-base">
-                    {t.contact.dropLineDesc}
+                    The fastest way to reach me. I check email throughout the
+                    day and usually reply within a few hours.
                   </p>
                 </div>
 
                 <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/60">
-                  {t.contact.responseTime}
+                  Response time: usually within 24 hours
                 </div>
               </div>
 
@@ -102,7 +164,7 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href="tel:+977-9800000000"
+                  href="tel:+977-9804102241"
                   className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white/84 transition-colors hover:bg-white/[0.06]"
                 >
                   <Phone className="h-4 w-4 text-brand-signal" />
@@ -114,14 +176,14 @@ export default function Contact() {
             <div className="grid gap-6 sm:grid-cols-2">
               <InfoCard
                 icon={<MapPin className="h-5 w-5 text-brand-primary" />}
-                title={t.contact.basedIn}
-                body={t.contact.basedInDesc}
+                title="Based in"
+                body="Working remotely from the beautiful city of lakes."
                 footer={`${city}, ${country}`}
               />
               <InfoCard
                 icon={<Calendar className="h-5 w-5 text-brand-signal" />}
                 title="Timezone"
-                body={t.contact.timezoneText}
+                body="UTC+5:45. Usually online from 9 AM to 6 PM."
                 footer={LOCATION.timezone}
               />
             </div>
@@ -135,73 +197,33 @@ export default function Contact() {
               className="section-shell p-6 sm:p-8"
             >
               <h2 className="text-2xl font-semibold text-white">
-                {t.contact.otherWaysTitle}
+                Other ways to connect
               </h2>
               <p className="mt-3 max-w-xl text-sm leading-7 text-white/72">
-                {t.contact.otherWaysDesc}
+                Because email is not always the most convenient option.
               </p>
 
               <div className="mt-6 space-y-3">
                 <ActionRow
                   icon={<Coffee className="h-5 w-5 text-brand-primary" />}
-                  title={t.contact.virtualCoffee}
-                  body={t.contact.virtualCoffeeDesc}
-                  cta={t.contact.grabCup}
+                  title="Virtual Coffee"
+                  body="Casual chat about tech, life, or anything interesting."
+                  cta="Grab a cup"
                 />
                 <ActionRow
-                  icon={<MessageCircle className="h-5 w-5 text-brand-primary" />}
-                  title={t.contact.quickDm}
-                  body={t.contact.quickDmDesc}
-                  cta={t.contact.superFast}
+                  icon={
+                    <MessageCircle className="h-5 w-5 text-brand-primary" />
+                  }
+                  title="Quick DM"
+                  body="Reach out on social if that’s easier."
+                  cta="Super fast"
                 />
                 <ActionRow
                   icon={<Phone className="h-5 w-5 text-brand-signal" />}
-                  title={t.contact.quickCall}
-                  body={t.contact.quickCallDesc}
-                  cta={t.contact.bookSlot}
+                  title="Quick Call"
+                  body="Schedule a 15-minute video chat to discuss your project."
+                  cta="Book a slot"
                 />
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="section-shell p-6 sm:p-8"
-            >
-              <h2 className="text-2xl font-semibold text-white">
-                {t.contact.findMe}
-              </h2>
-
-              <div className="mt-5 flex flex-wrap gap-3">
-                {SOCIAL_LINKS.map((social) => {
-                  const Icon = social.icon;
-                  const tooltipKey = social.name.toLowerCase() as TooltipKey;
-
-                  return (
-                    <Tooltip key={social.name} content={tooltips[tooltipKey]}>
-                      <a
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-3 text-sm font-medium text-white/82 transition-colors hover:bg-white/[0.06]"
-                      >
-                        <Icon className="h-4 w-4 text-brand-primary" />
-                        {social.name}
-                      </a>
-                    </Tooltip>
-                  );
-                })}
-              </div>
-
-              <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-                <p className="text-xs uppercase tracking-[0.24em] text-white/45">
-                  {t.contact.poweredBy}
-                </p>
-                <p className="mt-3 text-sm leading-7 text-white/68">
-                  Curiosity, clean execution, and a bias toward work that holds up in
-                  production.
-                </p>
               </div>
             </motion.div>
           </div>

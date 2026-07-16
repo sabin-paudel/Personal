@@ -5,13 +5,15 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   ChevronRight,
+  Braces,
+  Code,
   Code2,
   LayoutPanelTop,
+  Smile,
   Sparkles,
 } from "lucide-react";
 
 import OptimizedImage from "../ui/OptimizedImage";
-import { useLanguage } from "@/app/lib/i18n/LanguageProvider";
 
 const heroCards = [
   {
@@ -32,8 +34,6 @@ const heroCards = [
 ] as const;
 
 export default function Hero() {
-  const { t } = useLanguage();
-
   return (
     <section
       id="home"
@@ -57,19 +57,68 @@ export default function Hero() {
             className="section-kicker w-fit"
           >
             <Sparkles className="h-3.5 w-3.5 text-brand-signal" />
-            <span>{t.home.badge}</span>
+            <span>Sabin Paudel · Frontend Developer</span>
           </motion.div>
 
-          <div className="max-w-3xl space-y-6">
+          <div className="max-w-4xl space-y-6">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-[clamp(2.8rem,8vw,5.8rem)] font-semibold leading-[0.95] tracking-tight text-white"
+              className="text-[clamp(2.8rem,8vw,5.6rem)] font-semibold leading-[0.96] tracking-tight text-white"
             >
-              <span className="block">{t.hero.headingLine1}</span>
-              <span className="block text-gradient">
-                {t.hero.headingHighlight}
+              <span className="block text-white/92">Funny guy with a</span>
+              <span className="relative mt-1 inline-flex flex-wrap items-center gap-2 whitespace-nowrap text-gradient text-[clamp(2.2rem,5vw,4rem)]">
+                <span className="absolute inset-x-[-1.2rem] top-1/2 -z-10 -translate-y-1/2"></span>
+                <span className="relative z-10">Frontend obsession</span>
+                <span className="inline-flex justify-center items-center gap-1.5 text-brand-signal">
+                  <motion.span
+                    aria-hidden="true"
+                    animate={{ y: [0, -2, 0], rotate: [0, 8, 0] }}
+                    transition={{
+                      duration: 2.8,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Smile className="h-5 w-5 sm:h-4.5 sm:w-4.5" />
+                  </motion.span>
+                  <motion.span
+                    aria-hidden="true"
+                    animate={{ y: [0, 2, 0], rotate: [0, -8, 0] }}
+                    transition={{
+                      duration: 3.2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Code className="h-5 w-5 sm:h-4.5  sm:w-4.5" />
+                  </motion.span>
+                  <motion.span
+                    aria-hidden="true"
+                    className="text-brand-primary"
+                    animate={{ y: [0, -1.5, 0], scale: [1, 1.08, 1] }}
+                    transition={{
+                      duration: 3.6,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Sparkles className="h-5 w-5 animate-spin sm:h-4.5 sm:w-4.5" />
+                  </motion.span>
+                  <motion.span
+                    aria-hidden="true"
+                    className="text-white/70"
+                    animate={{ y: [0, -1, 0], rotate: [0, -6, 0] }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Braces className="h-5 w-5  sm:h-4.5 sm:w-4.5" />
+                  </motion.span>
+                </span>
               </span>
             </motion.h1>
 
@@ -79,7 +128,9 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="max-w-2xl text-pretty text-base leading-7 text-white/78 sm:text-lg"
             >
-              {t.hero.intro}
+              I build modern web applications with React, Next.js, and
+              TypeScript from Pokhara, Nepal, with a focus on clarity,
+              performance, and maintainable UI systems.
             </motion.p>
           </div>
 
@@ -93,14 +144,14 @@ export default function Hero() {
               href="/projects"
               className="inline-flex items-center gap-2 rounded-full bg-(--brand-primary) px-5 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5"
             >
-              {t.home.viewAllProjects}
+              View projects
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href="/about"
               className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/4 px-5 py-3 text-sm font-semibold text-white/88 transition-colors duration-300 hover:border-white/20 hover:bg-white/6"
             >
-              {t.hero.aboutButton}
+              About Sabin
               <ChevronRight className="h-4 w-4 text-brand-primary" />
             </Link>
           </motion.div>
@@ -191,7 +242,7 @@ export default function Hero() {
                 Availability
               </p>
               <p className="mt-3 text-base font-semibold text-white">
-                Open for serious frontend and product work
+                Open for frontend and product work
               </p>
               <p className="mt-2 text-sm leading-6 text-white/68">
                 Freelance, collaborations, and production-minded builds.

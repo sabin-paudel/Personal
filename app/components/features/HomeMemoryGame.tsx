@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from "react";
 import confetti from "canvas-confetti";
-import { useLanguage } from "@/app/lib/i18n/LanguageProvider";
 import StatBadge from "@/app/components/ui/StatBadge";
 
 type PlayState = "idle" | "show" | "input" | "failed";
@@ -15,7 +14,6 @@ function randomIndex(max: number) {
 }
 
 export default function HomeMemoryGame() {
-  const { t } = useLanguage();
   const [state, setState] = useState<PlayState>("idle");
   const [level, setLevel] = useState(1);
   const [bestLevel, setBestLevel] = useState(1);
@@ -92,12 +90,12 @@ export default function HomeMemoryGame() {
 
   const subtitle =
     state === "idle"
-      ? t.games.memory.idleSubtitle
+      ? "Memorize the flash sequence and replay it."
       : state === "show"
-        ? t.games.memory.showSubtitle
+        ? "Watch carefully..."
         : state === "input"
-          ? t.games.memory.inputSubtitle
-          : t.games.memory.failedSubtitle;
+          ? "Your turn. Repeat the pattern."
+          : "Wrong pick. Try again from level 1.";
 
   return (
     <div className="w-full">
@@ -105,16 +103,16 @@ export default function HomeMemoryGame() {
         <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
           <div>
             <h2 className="text-lg font-semibold text-white sm:text-xl">
-              {t.games.memory.title}
+              Pattern Memory Rush
             </h2>
             <p className="max-w-xl text-sm leading-6 text-white/62">{subtitle}</p>
           </div>
 
           <div className="flex items-center gap-2 text-xs text-white/75">
-            <StatBadge label={t.games.memory.level} value={String(level)} />
-            <StatBadge label={t.games.memory.best} value={String(bestLevel)} />
+            <StatBadge label="Level" value={String(level)} />
+            <StatBadge label="Best" value={String(bestLevel)} />
             <StatBadge
-              label={t.games.memory.progress}
+              label="Progress"
               value={`${Math.min(inputIndex, sequence.length)}/${sequence.length || 0}`}
             />
           </div>
@@ -156,9 +154,7 @@ export default function HomeMemoryGame() {
               onClick={startGame}
               className="rounded-full border border-[color:var(--brand-primary)]/70 bg-[color:var(--brand-primary)]/20 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[color:var(--brand-primary)]/30"
             >
-              {state === "failed"
-                ? t.games.memory.tryAgain
-                : t.games.memory.start}
+              {state === "failed" ? "Try Again" : "Start Game"}
             </button>
           )}
         </div>

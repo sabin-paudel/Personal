@@ -51,7 +51,7 @@ export default function BubbleLoader() {
 
             <div>
               <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-                Aatreya
+                Sabin Paudel
               </h1>
               <p className="mt-3 text-xs uppercase tracking-[0.35em] text-white/50">
                 Crafting the interface layer

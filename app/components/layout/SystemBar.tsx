@@ -4,11 +4,9 @@ import { motion } from "framer-motion";
 import { Clock3 } from "lucide-react";
 
 import { useTime } from "@/app/lib/hooks/useTime";
-import { useLanguage } from "@/app/lib/i18n/LanguageProvider";
 
 export default function SystemBar() {
   const time = useTime("hh:mm:ss");
-  const { t } = useLanguage();
 
   const [hours, minutes, seconds] = time.split(":");
 

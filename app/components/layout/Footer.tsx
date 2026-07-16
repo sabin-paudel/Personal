@@ -8,12 +8,10 @@ import confetti from "canvas-confetti";
 
 import MagneticWrapper from "@/app/components/animations/MagneticWrapper";
 import { SOCIAL_LINKS } from "@/app/lib/constants/social";
-import { useLanguage } from "@/app/lib/i18n/LanguageProvider";
 
 export default function Footer() {
   const [clicks, setClicks] = useState(0);
   const currentYear = new Date().getFullYear();
-  const { t } = useLanguage();
 
   const handleLogoClick = () => {
     setClicks((prev) => prev + 1);
@@ -39,11 +37,12 @@ export default function Footer() {
               whileTap={{ scale: 0.97 }}
               className="text-left text-2xl font-semibold tracking-tight text-white"
             >
-              Aatreya Sabin
+              Sabin Paudel
             </motion.button>
             <p className="max-w-md text-sm leading-7 text-white/68">
-              A personal portfolio focused on frontend systems, interaction design,
-              and practical product engineering.
+              A personal portfolio for Sabin Paudel, a frontend developer from
+              Pokhara, Nepal, focused on React, Next.js, TypeScript, and modern
+              web applications.
             </p>
             <p className="text-xs uppercase tracking-[0.26em] text-white/45">
               {clicks}/5 clicks for a tiny celebration
@@ -56,10 +55,10 @@ export default function Footer() {
             </h3>
             <ul className="mt-4 space-y-3 text-sm text-white/78">
               {[
-                { label: t.navigation.home, href: "/" },
-                { label: t.navigation.about, href: "/about" },
-                { label: t.navigation.work, href: "/projects" },
-                { label: t.navigation.contact, href: "/contact" },
+                { label: "Home", href: "/" },
+                { label: "About", href: "/about" },
+                { label: "Work", href: "/projects" },
+                { label: "Contact", href: "/contact" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -102,7 +101,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-4 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {currentYear} Aatreya Sabin. All rights reserved.</p>
+          <p>© {currentYear} Sabin Paudel. All rights reserved.</p>
           <div className="flex items-center gap-2">
             <span>Made with</span>
             <Coffee className="h-4 w-4 text-brand-signal" />

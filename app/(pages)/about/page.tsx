@@ -17,7 +17,6 @@ import Tooltip from "@/app/components/ui/Tooltip";
 import OptimizedImage from "@/app/components/ui/OptimizedImage";
 import { getAboutData } from "@/app/lib/data/about";
 import { tooltips } from "@/app/lib/data/tooltips";
-import { useLanguage } from "@/app/lib/i18n/LanguageProvider";
 
 const socialIcons = {
   github: Github,
@@ -58,7 +57,6 @@ const itemVariants: Variants = {
 };
 
 export default function About() {
-  const { language, t } = useLanguage();
   const {
     profile,
     socialLinks,
@@ -66,7 +64,7 @@ export default function About() {
     workExperience,
     studies,
     technicalSkills,
-  } = getAboutData(language);
+  } = getAboutData();
 
   return (
     <section id="about" className="px-4 py-16 sm:px-6 lg:py-20">
@@ -158,7 +156,7 @@ export default function About() {
             >
               <div className="h-px w-10 bg-(--brand-primary)" />
               <p className="text-xs uppercase tracking-[0.28em] text-white/50">
-                {t.about.introduction}
+                Introduction
               </p>
             </motion.div>
 
@@ -190,7 +188,7 @@ export default function About() {
               >
                 <Briefcase className="h-5 w-5 text-brand-primary" />
                 <h2 className="text-2xl font-semibold tracking-tight text-white">
-                  {t.about.workExperience}
+                  Work Experience
                 </h2>
               </motion.div>
 
@@ -235,7 +233,7 @@ export default function About() {
               >
                 <GraduationCap className="h-5 w-5 text-brand-signal" />
                 <h2 className="text-2xl font-semibold tracking-tight text-white">
-                  {t.about.studies}
+                  Education
                 </h2>
               </motion.div>
 
@@ -272,15 +270,15 @@ export default function About() {
             variants={containerVariants}
             className="section-shell p-6 sm:p-8"
           >
-            <motion.div
-              variants={itemVariants}
-              className="flex items-center gap-3"
-            >
-              <Code2 className="h-5 w-5 text-brand-primary" />
-              <h2 className="text-2xl font-semibold tracking-tight text-white">
-                {t.about.technicalSkills}
-              </h2>
-            </motion.div>
+              <motion.div
+                variants={itemVariants}
+                className="flex items-center gap-3"
+              >
+                <Code2 className="h-5 w-5 text-brand-primary" />
+                <h2 className="text-2xl font-semibold tracking-tight text-white">
+                  Technical Skills
+                </h2>
+              </motion.div>
 
             <div className="mt-6 grid gap-6 lg:grid-cols-3">
               {Object.entries(technicalSkills).map(([category, skills]) => (
@@ -290,7 +288,7 @@ export default function About() {
                   className="space-y-4"
                 >
                   <h3 className="text-sm uppercase tracking-[0.24em] text-white/45">
-                    {category}
+                    {category.charAt(0).toUpperCase() + category.slice(1)}
                   </h3>
                   <div className="grid grid-cols-2 gap-3">
                     {skills.map((skill) => {

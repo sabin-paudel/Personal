@@ -91,10 +91,6 @@ body {
     linear-gradient(180deg, #080808 0%, #050505 100%);
 }
 
-html[lang="ne"] body {
-  font-family: var(--font-nepali), var(--font-geist-sans), sans-serif;
-}
-
 @layer utilities {
   .glass {
     @apply border border-white/10 bg-white/5 backdrop-blur-xl;

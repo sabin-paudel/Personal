@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { ArrowRight, Code2, Layers3, Sparkles, Wand2 } from "lucide-react";
 
 import { getFeaturedProjects } from "@/app/types/project";
-import { useLanguage } from "@/app/lib/i18n/LanguageProvider";
 import HomeArcadeGame from "@/app/components/features/HomeArcadeGame";
 import HomeMemoryGame from "@/app/components/features/HomeMemoryGame";
 import HomeFunAstrologyGame from "@/app/components/features/HomeFunAstrologyGame";
@@ -30,8 +29,7 @@ const principleCards = [
 ] as const;
 
 export default function HomeSections() {
-  const { language, t } = useLanguage();
-  const featuredProjects = getFeaturedProjects(language);
+  const featuredProjects = getFeaturedProjects();
 
   return (
     <div className="mx-auto max-w-7xl space-y-16 px-4 pb-20 sm:px-6 lg:space-y-20">
@@ -39,13 +37,14 @@ export default function HomeSections() {
         <div className="max-w-3xl space-y-4">
           <div className="section-kicker w-fit">
             <Sparkles className="h-3.5 w-3.5 text-brand-signal" />
-            <span>{t.home.principlesTitle}</span>
+            <span>Working principles</span>
           </div>
           <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-[2.9rem]">
-            {t.home.principlesTitle}
+            Working principles
           </h2>
           <p className="max-w-2xl text-base leading-7 text-white/72 sm:text-lg">
-            {t.home.introSubtitle}
+            A clear, practical approach to frontend work, product structure, and
+            motion.
           </p>
         </div>
 
@@ -83,14 +82,14 @@ export default function HomeSections() {
             href="/about"
             className="inline-flex items-center gap-2 rounded-full bg-(--brand-primary) px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
           >
-            {t.home.exploreAbout}
+            Learn more about Sabin
             <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             href="/projects"
             className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/4 px-5 py-3 text-sm font-semibold text-white/86 transition-colors hover:bg-white/6"
           >
-            {t.home.viewAllProjects}
+            View all projects
             <ArrowRight className="h-4 w-4 text-brand-signal" />
           </Link>
         </div>
@@ -100,13 +99,13 @@ export default function HomeSections() {
         <div className="max-w-3xl space-y-3">
           <div className="section-kicker w-fit">
             <Sparkles className="h-3.5 w-3.5 text-brand-signal" />
-            <span>{t.home.projectsTitle}</span>
+            <span>Selected work</span>
           </div>
           <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            {t.home.projectsTitle}
+            Selected work
           </h2>
           <p className="max-w-2xl text-base leading-7 text-white/72">
-            {t.home.projectsSubtitle}
+            Projects with context, tradeoffs, and the decisions behind them.
           </p>
         </div>
 
@@ -152,7 +151,7 @@ export default function HomeSections() {
                   href="/projects"
                   className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary"
                 >
-                  {t.home.viewAllProjects}
+                  View all projects
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -165,13 +164,14 @@ export default function HomeSections() {
         <div className="max-w-3xl space-y-3">
           <div className="section-kicker w-fit">
             <Sparkles className="h-3.5 w-3.5 text-brand-signal" />
-            <span>{t.home.playgroundTitle}</span>
+            <span>Interaction playground</span>
           </div>
           <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            {t.home.playgroundTitle}
+            Interaction playground
           </h2>
           <p className="max-w-2xl text-base leading-7 text-white/72">
-            {t.home.playgroundSubtitle}
+            Small experiments that keep the portfolio playful without
+            distracting from the work.
           </p>
         </div>
 
@@ -182,10 +182,11 @@ export default function HomeSections() {
                 Game one
               </p>
               <h3 className="mt-2 text-xl font-semibold text-white">
-                {t.games.arcade.title}
+                Arcade Aim Challenge
               </h3>
               <p className="mt-2 text-sm leading-6 text-white/68">
-                {t.games.arcade.subtitle}
+                Hit moving targets. Every 5 score points increases level and
+                speed.
               </p>
             </div>
             <HomeArcadeGame />
@@ -197,10 +198,10 @@ export default function HomeSections() {
                 Game two
               </p>
               <h3 className="mt-2 text-xl font-semibold text-white">
-                {t.games.memory.title}
+                Pattern Memory Rush
               </h3>
               <p className="mt-2 text-sm leading-6 text-white/68">
-                {t.games.memory.idleSubtitle}
+                Memorize the flash sequence and replay it.
               </p>
             </div>
             <HomeMemoryGame />
@@ -212,10 +213,10 @@ export default function HomeSections() {
                 Game three
               </p>
               <h3 className="mt-2 text-xl font-semibold text-white">
-                {t.games.astrology.title}
+                Fun Astrology Oracle
               </h3>
               <p className="mt-2 text-sm leading-6 text-white/68">
-                {t.games.astrology.subtitle}
+                Enter your details and reveal a playful future prediction.
               </p>
             </div>
             <HomeFunAstrologyGame />

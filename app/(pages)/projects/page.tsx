@@ -6,21 +6,40 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Github, Sparkles } from "lucide-react";
 
 import { getProjects } from "@/app/types/project";
-import { useLanguage } from "@/app/lib/i18n/LanguageProvider";
 import OptimizedImage from "@/app/components/ui/OptimizedImage";
 
 type ProjectView = "story" | "xray";
 
 export default function Projects() {
-  const { language, t } = useLanguage();
-  const projects = getProjects(language);
+  const projects = getProjects();
   const [activeProjectId, setActiveProjectId] = useState(projects[0]?.id ?? "");
   const [view, setView] = useState<ProjectView>("story");
+  const siteUrl = "https://sabinpaudel.com.np";
 
   const activeProject = useMemo(
     () => projects.find((project) => project.id === activeProjectId) ?? projects[0],
     [activeProjectId, projects],
   );
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Sabin Paudel Projects",
+    description:
+      "Selected frontend projects by Sabin Paudel, with React and Next.js implementation detail.",
+    itemListElement: projects.map((project, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "CreativeWork",
+        name: project.title,
+        description: project.description,
+        image: `${siteUrl}${project.image}`,
+        ...(project.liveUrl ? { url: project.liveUrl } : {}),
+        ...(project.githubUrl ? { codeRepository: project.githubUrl } : {}),
+      },
+    })),
+  };
 
   if (!activeProject) return null;
 
@@ -29,6 +48,13 @@ export default function Projects() {
       id="projects"
       className="relative overflow-hidden px-4 py-16 sm:px-6 lg:py-20"
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:72px_72px] opacity-40 [mask-image:radial-gradient(ellipse_75%_45%_at_50%_0%,black,transparent)]"
@@ -43,7 +69,7 @@ export default function Projects() {
             className="section-kicker"
           >
             <Sparkles className="h-3.5 w-3.5 text-brand-signal" />
-            <span>{t.projects.selectedWorks}</span>
+            <span>Selected work</span>
           </motion.div>
 
           <motion.h1
@@ -53,8 +79,7 @@ export default function Projects() {
             transition={{ duration: 0.8 }}
             className="text-[clamp(3rem,9vw,6.5rem)] font-semibold leading-[0.92] tracking-tight text-white"
           >
-            {t.projects.headingPrefix}{" "}
-            <span className="text-gradient">{t.projects.headingHighlight}</span>
+            Projects with <span className="text-gradient">X-Ray detail</span>
           </motion.h1>
 
           <motion.p
@@ -64,7 +89,8 @@ export default function Projects() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="max-w-2xl text-pretty text-base leading-7 text-white/72 sm:text-lg"
           >
-            {t.projects.subtitle}
+            Real products, clear tradeoffs, and a level of detail that shows how
+            the work actually hangs together.
           </motion.p>
         </header>
 
@@ -89,7 +115,7 @@ export default function Projects() {
               <div className="absolute left-0 top-0 flex w-full items-start justify-between gap-4 p-5 sm:p-6">
                 <div className="max-w-[70%]">
                   <p className="text-xs uppercase tracking-[0.24em] text-white/55">
-                    {t.projects.xrayLabel}
+                    Sabin Paudel Project X-Ray
                   </p>
                   <h2 className="mt-3 text-2xl font-semibold text-white sm:text-4xl">
                     {activeProject.title}
@@ -99,12 +125,12 @@ export default function Projects() {
                 <div className="flex rounded-full border border-white/10 bg-black/35 p-1 backdrop-blur-md">
                   <TabButton
                     active={view === "story"}
-                    label={t.projects.storyView}
+                    label="Story"
                     onClick={() => setView("story")}
                   />
                   <TabButton
                     active={view === "xray"}
-                    label={t.projects.xrayView}
+                    label="X-Ray"
                     onClick={() => setView("xray")}
                   />
                 </div>
@@ -147,7 +173,7 @@ export default function Projects() {
                 ) : (
                   <>
                     <p className="text-xs uppercase tracking-[0.24em] text-white/45">
-                      {t.projects.xrayLead}
+                      Press into the architecture, not just the surface.
                     </p>
                     <div className="space-y-4">
                       <DetailBlock
@@ -185,7 +211,7 @@ export default function Projects() {
                   </p>
                   <div className="mt-4 flex items-center gap-2 text-sm text-white/72">
                     <span className="h-2 w-2 rounded-full bg-brand-signal" />
-                    <span>{t.projects.liveProject}</span>
+                    <span>Live project</span>
                   </div>
                   <p className="mt-3 text-sm leading-6 text-white/65">
                     A deliberate surface for the project, with just enough motion
@@ -201,7 +227,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 rounded-full bg-[color:var(--brand-primary)] px-4 py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
                     >
-                      {t.projects.viewProject}
+                      View project
                       <ArrowUpRight className="h-4 w-4" />
                     </Link>
                   )}
@@ -259,7 +285,7 @@ export default function Projects() {
                       <div className="flex items-start justify-between gap-3">
                         <div>
                           <p className="text-xs uppercase tracking-[0.22em] text-white/45">
-                            {project.featured ? t.projects.selectedWorks : "Case study"}
+                            {project.featured ? "Featured project" : "Case study"}
                           </p>
                           <h3 className="mt-2 text-lg font-semibold text-white">
                             {project.title}
@@ -298,7 +324,7 @@ export default function Projects() {
         <div className="flex flex-col items-start justify-between gap-4 rounded-[2rem] border border-white/10 bg-white/[0.03] p-5 sm:flex-row sm:items-center sm:p-6">
           <div>
             <p className="text-xs uppercase tracking-[0.24em] text-white/45">
-              {projects.length}+ {t.projects.projectsAndCounting}
+              {projects.length} projects in the portfolio
             </p>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-white/68">
               The portfolio stays content-first, but the interaction layer gives each
@@ -307,12 +333,12 @@ export default function Projects() {
           </div>
 
           <Link
-            href="https://github.com/sabin404"
+            href="https://github.com/sabin-paudel"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white/84 transition-colors hover:bg-white/[0.07]"
           >
-            {t.projects.exploreGithub}
+            Explore more on GitHub
             <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>

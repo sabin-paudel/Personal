@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { GeistMono, GeistSans } from "geist/font";
-import { Azeret_Mono, Noto_Sans_Devanagari, Syne } from "next/font/google";
+import { Azeret_Mono } from "next/font/google";
 import Script from "next/script";
 
 import "./globals.css";
@@ -10,22 +10,7 @@ import Footer from "@/app/components/layout/Footer";
 import MouseGlow from "@/app/components/layout/MouseGlow";
 import ProgressBar from "@/app/components/ui/ProgressBar";
 import BubbleLoader from "./loading";
-import { LanguageProvider } from "@/app/lib/i18n/LanguageProvider";
 import { cn } from "@/app/lib/utils/cn";
-
-const nepaliFont = Noto_Sans_Devanagari({
-  subsets: ["devanagari"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-nepali",
-  display: "swap",
-});
-
-const locationFont = Syne({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-location",
-  display: "swap",
-});
 
 const timeFont = Azeret_Mono({
   subsets: ["latin"],
@@ -43,7 +28,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Sabin Paudel is a Frontend Developer from Nepal specializing in React, Next.js, TypeScript, Tailwind CSS, and modern web application development.",
+    "Sabin Paudel is a Frontend Developer from Pokhara, Nepal, building modern web applications with React, Next.js, and TypeScript.",
 
   applicationName: "Sabin Paudel Portfolio",
   authors: [{ name: "Sabin Paudel", url: "https://sabinpaudel.com.np" }],
@@ -104,11 +89,11 @@ export const metadata: Metadata = {
     url: "/",
     title: "Sabin Paudel | Frontend Developer",
     description:
-      "Explore the portfolio, projects, and skills of Sabin Paudel, a Frontend Developer from Nepal building modern web applications with React, Next.js, and TypeScript.",
+      "Explore the portfolio, projects, and skills of Sabin Paudel, a Frontend Developer from Pokhara, Nepal building modern web applications with React, Next.js, and TypeScript.",
     siteName: "Sabin Paudel Portfolio",
     images: [
       {
-        url: "/picofme.png",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Sabin Paudel - Frontend Developer",
@@ -120,8 +105,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sabin Paudel | Frontend Developer",
     description:
-      "Frontend Developer from Nepal specializing in React, Next.js, TypeScript, and modern web application development.",
-    images: ["/picofme.png"],
+      "Frontend Developer from Pokhara, Nepal specializing in React, Next.js, TypeScript, and modern web application development.",
+    images: ["/opengraph-image"],
   },
 };
 
@@ -136,38 +121,34 @@ export default function RootLayout({
       className={cn(
         GeistSans.variable,
         GeistMono.variable,
-        nepaliFont.variable,
-        locationFont.variable,
         timeFont.variable,
         GeistSans.className,
       )}
     >
       <body className="antialiased app-bg text-foreground overflow-x-hidden transition-colors duration-300">
-        <LanguageProvider>
-          <BubbleLoader />
+        <BubbleLoader />
 
-          <div aria-hidden="true" className="lamp-shell" />
-          <div aria-hidden="true" className="lamp-beam" />
+        <div aria-hidden="true" className="lamp-shell" />
+        <div aria-hidden="true" className="lamp-beam" />
 
-          <MouseGlow />
+        <MouseGlow />
 
-          <div className="fixed inset-0 -z-30 opacity-40">
-            <div
-              className="absolute inset-0 blur-3xl"
-              style={{
-                background:
-                  "radial-gradient(circle at 18% 20%, rgba(91, 124, 255, 0.12), transparent 35%), radial-gradient(circle at 82% 18%, rgba(255, 107, 44, 0.08), transparent 28%)",
-              }}
-            />
-          </div>
+        <div className="fixed inset-0 -z-30 opacity-40">
+          <div
+            className="absolute inset-0 blur-3xl"
+            style={{
+              background:
+                "radial-gradient(circle at 18% 20%, rgba(91, 124, 255, 0.12), transparent 35%), radial-gradient(circle at 82% 18%, rgba(255, 107, 44, 0.08), transparent 28%)",
+            }}
+          />
+        </div>
 
-          <SystemBar />
-          <ProgressBar />
-          <Navigation />
+        <SystemBar />
+        <ProgressBar />
+        <Navigation />
 
-          <main className="pt-24 relative z-10">{children}</main>
-          <Footer />
-        </LanguageProvider>
+        <main className="relative z-10 pt-24">{children}</main>
+        <Footer />
 
         <Script
           defer

@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import confetti from "canvas-confetti";
-import { useLanguage } from "@/app/lib/i18n/LanguageProvider";
 import StatBadge from "@/app/components/ui/StatBadge";
 
 type GameState = "idle" | "playing" | "finished";
@@ -16,7 +15,6 @@ function clamp(value: number, min: number, max: number) {
 }
 
 export default function HomeArcadeGame() {
-  const { t } = useLanguage();
   const [gameState, setGameState] = useState<GameState>("idle");
   const [score, setScore] = useState(0);
   const [hits, setHits] = useState(0);
@@ -124,42 +122,42 @@ export default function HomeArcadeGame() {
         <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
           <div>
             <h2 className="text-lg font-semibold text-white sm:text-xl">
-              {t.games.arcade.title}
+              Arcade Aim Challenge
             </h2>
             <p className="max-w-xl text-sm leading-6 text-white/62">
-              {t.games.arcade.subtitle}
+              Hit moving targets. Every 5 score points increases level and speed.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2 text-xs text-white/75">
-            <StatBadge label={t.games.arcade.level} value={String(level)} />
-            <StatBadge label={t.games.arcade.score} value={String(score)} />
-            <StatBadge label={t.games.arcade.best} value={String(bestScore)} />
-            <StatBadge label={t.games.arcade.accuracy} value={`${accuracy}%`} />
-            <StatBadge label={t.games.arcade.time} value={`${timeLeft}s`} />
+            <StatBadge label="Level" value={String(level)} />
+            <StatBadge label="Score" value={String(score)} />
+            <StatBadge label="Best" value={String(bestScore)} />
+            <StatBadge label="Accuracy" value={`${accuracy}%`} />
+            <StatBadge label="Time" value={`${timeLeft}s`} />
           </div>
         </div>
 
         <div className="relative h-72 w-full overflow-hidden rounded-2xl border border-white/10 bg-black/35 sm:h-96">
           {gameState === "idle" && (
             <Overlay
-              title={t.games.arcade.readyTitle}
-              subtitle={t.games.arcade.readySubtitle}
-              actionLabel={t.games.arcade.start}
+              title="Ready to play?"
+              subtitle="Press start and survive 45 seconds."
+              actionLabel="Start Game"
               onAction={startGame}
             />
           )}
 
           {gameState === "finished" && (
             <Overlay
-              title={t.games.arcade.doneTitle}
-              subtitle={`${t.games.arcade.score}: ${score} • ${t.games.arcade.accuracy}: ${accuracy}%`}
-              actionLabel={t.games.arcade.playAgain}
+              title="Run complete"
+              subtitle={`Score: ${score} • Accuracy: ${accuracy}%`}
+              actionLabel="Play Again"
               onAction={startGame}
             />
           )}
 
           {gameState === "playing" && (
-              <button
+            <button
               type="button"
               aria-label="target"
               onClick={handleTargetClick}

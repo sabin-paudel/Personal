@@ -3,13 +3,13 @@ import { Github, Linkedin, Mail, Instagram, Facebook } from 'lucide-react'
 export const SOCIAL_LINKS = [
   {
     name: 'GitHub',
-    href: 'https://github.com/sabin404',
+    href: 'https://github.com/sabin-paudel',
     icon: Github,
     tooltip: "Where I store my bugs... I mean, code",
   },
   {
     name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/sabin-paudel-188795280/',
+    href: 'https://linkedin.com/in/sabin-paudel-702580254',
     icon: Linkedin,
     tooltip: "Professional me (I promise I'm fun)",
   },
