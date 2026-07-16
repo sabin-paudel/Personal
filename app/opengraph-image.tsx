@@ -67,7 +67,7 @@ export default function HomeOpenGraphImage() {
           >
             <div
               style={{
-                display: "inline-flex",
+                display: "flex",
                 alignItems: "center",
                 padding: "12px 18px",
                 borderRadius: 999,
@@ -83,7 +83,7 @@ export default function HomeOpenGraphImage() {
             </div>
             <div
               style={{
-                display: "inline-flex",
+                display: "flex",
                 alignItems: "center",
                 padding: "12px 18px",
                 borderRadius: 999,
@@ -139,7 +139,7 @@ export default function HomeOpenGraphImage() {
               <div
                 key={item}
                 style={{
-                  display: "inline-flex",
+                  display: "flex",
                   alignItems: "center",
                   padding: "12px 16px",
                   borderRadius: 999,

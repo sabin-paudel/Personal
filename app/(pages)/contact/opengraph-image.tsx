@@ -60,7 +60,7 @@ export default function ContactOpenGraphImage() {
           <div style={{ display: "flex", justifyContent: "space-between", gap: 24 }}>
             <div
               style={{
-                display: "inline-flex",
+                display: "flex",
                 alignItems: "center",
                 padding: "12px 18px",
                 borderRadius: 999,
@@ -76,7 +76,7 @@ export default function ContactOpenGraphImage() {
             </div>
             <div
               style={{
-                display: "inline-flex",
+                display: "flex",
                 alignItems: "center",
                 padding: "12px 18px",
                 borderRadius: 999,
