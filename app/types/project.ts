@@ -12,7 +12,7 @@ const projectsByLocale: Record<Locale, Project[]> = {
       image: "/projects/ecommerce.png",
       tags: ["React", "Node.js", "Stripe", "MongoDB"],
       liveUrl: "https://example.com",
-      githubUrl: "https://github.com/Sabin404/SaShop",
+      githubUrl: "https://github.com/sabin-paudel/SaShop",
       featured: true,
       storyPoints: [
         "Designed around repeat purchases, not just a polished homepage.",
@@ -39,7 +39,7 @@ const projectsByLocale: Record<Locale, Project[]> = {
       image: "/projects/projectone.png",
       tags: ["React"],
       liveUrl: "https://zonexvi.vercel.app",
-      githubUrl: "https://github.com/Sabin404/zonexvi",
+      githubUrl: "https://github.com/sabin-paudel/zonexvi",
       featured: true,
       storyPoints: [
         "Shaped the site around a local community’s public identity.",
@@ -66,7 +66,7 @@ const projectsByLocale: Record<Locale, Project[]> = {
       image: "/projects/projecttwo.png",
       tags: ["React", "Node.js", "MongoDB"],
       liveUrl: "https://digital-signature.vercel.app",
-      githubUrl: "https://github.com/Sabin404/digital-signature",
+      githubUrl: "https://github.com/sabin-paudel/digital-signature",
       featured: false,
       storyPoints: [
         "Built to feel trustworthy before it feels flashy.",
@@ -93,7 +93,7 @@ const projectsByLocale: Record<Locale, Project[]> = {
       image: "/projects/weather.png",
       tags: ["React", "TypeScript", "Weather API", "Chart.js"],
       liveUrl: "https://example.com",
-      githubUrl: "https://github.com/yourusername/project",
+      githubUrl: "https://github.com/sabin-paudel",
       featured: false,
       storyPoints: [
         "Focused on immediate readability for daily check-ins.",
@@ -122,7 +122,7 @@ const projectsByLocale: Record<Locale, Project[]> = {
       image: "/projects/ecommerce.png",
       tags: ["React", "Node.js", "Stripe", "MongoDB"],
       liveUrl: "https://example.com",
-      githubUrl: "https://github.com/Sabin404/SaShop",
+      githubUrl: "https://github.com/sabin-paudel/SaShop",
       featured: true,
       storyPoints: [
         "उत्पादन किनबेचको प्रवाहलाई केन्द्रमा राखेर डिजाइन गरियो।",
@@ -131,7 +131,7 @@ const projectsByLocale: Record<Locale, Project[]> = {
       ],
       xray: {
         challenge:
-          "उत्पादन browse, cart परिवर्तन र checkout लाई एउटै प्रवाहमा बाँधेर interface जटिल नबनाउने।",
+          "उत्पदन browse, cart परिवर्तन र checkout लाई एउटै प्रवाहमा बाँधेर interface जटिल नबनाउने।",
         approach:
           "Catalog, cart र dashboard actions का लागि छुट्टाछुट्टै state राखेर UI predictible बनाइयो।",
         impact:
@@ -149,7 +149,7 @@ const projectsByLocale: Record<Locale, Project[]> = {
       image: "/projects/projectone.png",
       tags: ["React"],
       liveUrl: "https://zonexvi.vercel.app",
-      githubUrl: "https://github.com/Sabin404/zonexvi",
+      githubUrl: "https://github.com/sabin-paudel/zonexvi",
       featured: true,
       storyPoints: [
         "स्थानीय समुदायको सार्वजनिक पहिचानलाई केन्द्रमा राखियो।",
@@ -176,7 +176,7 @@ const projectsByLocale: Record<Locale, Project[]> = {
       image: "/projects/projecttwo.png",
       tags: ["React", "Node.js", "MongoDB"],
       liveUrl: "https://digital-signature.vercel.app",
-      githubUrl: "https://github.com/Sabin404/digital-signature",
+      githubUrl: "https://github.com/sabin-paudel/digital-signature",
       featured: false,
       storyPoints: [
         "विश्वासिलो महसुस गराउने तर flashiness कम राखियो।",
@@ -203,7 +203,7 @@ const projectsByLocale: Record<Locale, Project[]> = {
       image: "/projects/weather.png",
       tags: ["React", "TypeScript", "Weather API", "Chart.js"],
       liveUrl: "https://example.com",
-      githubUrl: "https://github.com/yourusername/project",
+      githubUrl: "https://github.com/sabin-paudel",
       featured: false,
       storyPoints: [
         "दिनहुँको weather check को लागि तुरुन्त readable बनाइयो।",

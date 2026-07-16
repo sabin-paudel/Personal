@@ -18,7 +18,7 @@ const profileByLocale = {
 } as const;
 
 export const socialLinks = [
-  { name: "GitHub", url: "https://github.com/sabin404", icon: "github" },
+  { name: "GitHub", url: "https://github.com/sabin-paudel", icon: "github" },
   { name: "LinkedIn", url: "https://linkedin.com/in/sabin-paudel-702580254", icon: "linkedin" },
   { name: "Facebook", url: "https://facebook.com/paudelsabin0", icon: "facebook" },
   { name: "Instagram", url: "https://instagram.com/sabinpaudel_", icon: "instagram" },
