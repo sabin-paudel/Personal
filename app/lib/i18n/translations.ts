@@ -14,15 +14,28 @@ export const translations = {
       localTime: "Local Time",
     },
     hero: {
-      headingLine1: "Building digital",
-      headingHighlight: "Something Amazing",
-      intro: "Hi, Im Sabin - a full stack developer crafting modern, fast, and beautiful web applications.",
-      aboutButton: "About Aatreya Sabin",
+      headingLine1: "Funny guy   ",
+      headingHighlight: "with a frontend obsession.",
+      intro:
+        "Hi, I’m Sabin, a funny guy who builds serious interfaces, reliable systems, and digital experiences that feel calm, credible, and thoughtfully made.",
+      aboutButton: "About Aatreya",
     },
     home: {
-      scrollToGames: "Scroll down to play games",
-      miniGamesTitle: "Mini Games Zone",
-      miniGamesHint: "Swipe or scroll sideways to switch between games.",
+      badge: "Sabin Paudel · Frontend Developer",
+      introTitle: "Designing the layer between idea and interface",
+      introSubtitle:
+        "Aatreya is a personal portfolio for product-minded frontend work, careful motion, and practical systems thinking.",
+      principlesTitle: "Working principles",
+      principlesSubtitle:
+        "The portfolio is built around clarity, restraint, and interactions that support the content instead of distracting from it.",
+      projectsTitle: "Selected work",
+      projectsSubtitle:
+        "A small set of projects with enough context to show the tradeoffs, not just the screenshots.",
+      playgroundTitle: "Interaction playground",
+      playgroundSubtitle:
+        "The experiments stay, but they now live inside a calmer, more purposeful frame.",
+      viewAllProjects: "View all projects",
+      exploreAbout: "Learn more about Sabin",
     },
     about: {
       introduction: "Introduction",
@@ -32,14 +45,18 @@ export const translations = {
     },
     projects: {
       selectedWorks: "SELECTED WORKS",
-      headingPrefix: "Projects That",
-      headingHighlight: "Speak",
+      headingPrefix: "Projects with",
+      headingHighlight: "X-Ray detail",
       subtitle:
-        "Real-world solutions built with modern tech. Breaking conventions, one commit at a time.",
+        "Real products, clear tradeoffs, and a level of detail that shows how the work actually hangs together.",
       exploreGithub: "Explore More on GitHub",
       projectsAndCounting: "Projects & Counting",
       liveProject: "LIVE PROJECT",
       viewProject: "View Project",
+      storyView: "Story",
+      xrayView: "X-Ray",
+      xrayLabel: "Aatreya Project X-Ray",
+      xrayLead: "Press into the architecture, not just the surface.",
     },
     contact: {
       connectBadge: "LET'S CONNECT",
@@ -139,16 +156,28 @@ export const translations = {
       localTime: "स्थानीय समय",
     },
     hero: {
-      headingLine1: "डिजिटल संसारमा",
-      headingHighlight: "अद्भुत कुरा निर्माण",
+      headingLine1: "मानवीय स्पन्दनसहित",
+      headingHighlight: "इन्जिनियरिङ",
       intro:
-        "नमस्ते, म सबिन हुँ - आधुनिक, छिटो र सुन्दर वेब एप्लिकेसन बनाउने फुल स्ट्याक डेभलपर।",
-      aboutButton: "आत्रेय सबिन बारे",
+        "नमस्ते, म सबिन हुँ। म सोचेर बनाइएका interface, भरपर्दो system, र शान्त, विश्वसनीय र ध्यानपूर्वक तयार गरिएका product experience निर्माण गर्छु।",
+      aboutButton: "आत्रेय बारे",
     },
     home: {
-      scrollToGames: "खेल खेल्न तल स्क्रोल गर्नुहोस्",
-      miniGamesTitle: "मिनी खेल क्षेत्र",
-      miniGamesHint: "खेल परिवर्तन गर्न साइडतर्फ स्वाइप वा स्क्रोल गर्नुहोस्।",
+      badge: "सबिन पौडेल · फुल स्ट्याक डेभलपर",
+      introTitle: "विचार र interface बीचको तह डिजाइन गर्दै",
+      introSubtitle:
+        "आत्रेय एक व्यक्तिगत portfolio हो, product-minded frontend काम, ध्यानपूर्वक motion, र practical system thinking का लागि।",
+      principlesTitle: "काम गर्ने सिद्धान्तहरू",
+      principlesSubtitle:
+        "यो portfolio clarity, restraint, र content लाई distract नगर्ने interaction वरिपरि बनाइएको छ।",
+      projectsTitle: "चयन गरिएका कामहरू",
+      projectsSubtitle:
+        "स्क्रिनसट मात्र होइन, निर्णय र tradeoff देखाउने सानो तर अर्थपूर्ण project समूह।",
+      playgroundTitle: "Interaction playground",
+      playgroundSubtitle:
+        "Experiments अझै छन्, तर अब तिनले शान्त र उद्देश्यपूर्ण frame पाएका छन्।",
+      viewAllProjects: "सबै प्रोजेक्ट हेर्नुहोस्",
+      exploreAbout: "सबिन बारे थप जान्नुहोस्",
     },
     about: {
       introduction: "परिचय",
@@ -158,14 +187,18 @@ export const translations = {
     },
     projects: {
       selectedWorks: "चयन गरिएका कामहरू",
-      headingPrefix: "बोल्ने",
+      headingPrefix: "गहिराइ भएको",
       headingHighlight: "प्रोजेक्टहरू",
       subtitle:
-        "आधुनिक प्रविधिबाट बनेका वास्तविक समाधानहरू। प्रत्येक कमिटसँग नयाँ मानक।",
+        "वास्तविक product, स्पष्ट tradeoff, र काम कसरी जोडिन्छ भन्ने देखाउने स्तरको detail।",
       exploreGithub: "GitHub मा थप हेर्नुहोस्",
       projectsAndCounting: "प्रोजेक्टहरू र अझै जारी",
       liveProject: "लाइभ प्रोजेक्ट",
       viewProject: "प्रोजेक्ट हेर्नुहोस्",
+      storyView: "कथा",
+      xrayView: "X-Ray",
+      xrayLabel: "आत्रेय प्रोजेक्ट X-Ray",
+      xrayLead: "सतह होइन, वास्तुकलामा हेर्नुहोस्।",
     },
     contact: {
       connectBadge: "सम्पर्क गरौं",

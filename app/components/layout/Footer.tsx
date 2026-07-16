@@ -1,91 +1,98 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Coffee, Code } from "lucide-react";
-import { SOCIAL_LINKS } from "@/app/lib/constants/social";
-import MagneticWrapper from "@/app/components/animations/MagneticWrapper";
+import { ArrowUpRight, Coffee, Code2 } from "lucide-react";
 import { useState } from "react";
 import confetti from "canvas-confetti";
+
+import MagneticWrapper from "@/app/components/animations/MagneticWrapper";
+import { SOCIAL_LINKS } from "@/app/lib/constants/social";
+import { useLanguage } from "@/app/lib/i18n/LanguageProvider";
 
 export default function Footer() {
   const [clicks, setClicks] = useState(0);
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   const handleLogoClick = () => {
     setClicks((prev) => prev + 1);
 
-    // Easter egg: 5 clicks triggers confetti
     if (clicks + 1 === 5) {
       confetti({
-        particleCount: 100,
-        spread: 70,
+        particleCount: 96,
+        spread: 66,
         origin: { y: 0.8 },
       });
       setClicks(0);
-
-      // Optional: Show a fun message
-      const messages = [
-        "🎉 You found the secret!",
-        "🎊 Developer level: Expert",
-        "✨ Easter egg unlocked!",
-      ];
-      alert(messages[Math.floor(Math.random() * messages.length)]);
     }
   };
 
   return (
-    <footer className="relative border-t border-white/10 glass mt-32">
-      <div className="mx-auto max-w-7xl px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Left: Brand */}
-          <div>
+    <footer className="mt-16 border-t border-white/10">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12">
+        <div className="section-shell grid gap-8 p-6 sm:p-8 lg:grid-cols-[1.1fr_0.9fr_0.9fr]">
+          <div className="space-y-4">
             <motion.button
               onClick={handleLogoClick}
-              className="text-2xl font-bold text-gradient cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="text-left text-2xl font-semibold tracking-tight text-white"
             >
               Aatreya Sabin
             </motion.button>
-            <p className="mt-2 text-sm text-white">
-              Building digital experiences with code and creativity.
+            <p className="max-w-md text-sm leading-7 text-white/68">
+              A personal portfolio focused on frontend systems, interaction design,
+              and practical product engineering.
+            </p>
+            <p className="text-xs uppercase tracking-[0.26em] text-white/45">
+              {clicks}/5 clicks for a tiny celebration
             </p>
           </div>
 
-          {/* Middle: Quick Links */}
           <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm text-white">
-              {["Home", "Projects", "About", "Contact"].map((link) => (
-                <li key={link}>
-                  <a
-                    href={`#${link.toLowerCase()}`}
-                    className="hover:text-white transition-colors"
+            <h3 className="text-sm uppercase tracking-[0.24em] text-white/45">
+              Navigate
+            </h3>
+            <ul className="mt-4 space-y-3 text-sm text-white/78">
+              {[
+                { label: t.navigation.home, href: "/" },
+                { label: t.navigation.about, href: "/about" },
+                { label: t.navigation.work, href: "/projects" },
+                { label: t.navigation.contact, href: "/contact" },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="group inline-flex items-center gap-2 transition-colors hover:text-white"
                   >
-                    {link}
-                  </a>
+                    {link.label}
+                    <ArrowUpRight className="h-4 w-4 text-brand-primary opacity-0 transition-opacity group-hover:opacity-100" />
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Right: Social Links */}
           <div>
-            <h3 className="font-semibold mb-4">Connect</h3>
-            <div className="flex gap-4">
+            <h3 className="text-sm uppercase tracking-[0.24em] text-white/45">
+              Connect
+            </h3>
+            <div className="mt-4 flex flex-wrap gap-3">
               {SOCIAL_LINKS.map((social) => {
                 const Icon = social.icon;
                 return (
-                  <MagneticWrapper key={social.name} strength={0.5}>
+                  <MagneticWrapper key={social.name} strength={0.35}>
                     <a
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group relative p-2 rounded-full glass hover:bg-white/70 transition-all"
+                      className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-2.5 text-sm text-white/82 transition-colors hover:bg-white/[0.06]"
                       aria-label={social.name}
                       title={social.tooltip}
                     >
-                      <Icon className="h-5 w-5 text-white group-hover:text-white transition-colors" />
+                      <Icon className="h-4 w-4 text-brand-primary" />
+                      {social.name}
                     </a>
                   </MagneticWrapper>
                 );
@@ -94,31 +101,15 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom: Copyright with fun text */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-white">
-            © {currentYear} Aatreya Sabin. All rights reserved.
-          </p>
-
-          <div className="flex items-center gap-2 text-sm text-white">
+        <div className="mt-4 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {currentYear} Aatreya Sabin. All rights reserved.</p>
+          <div className="flex items-center gap-2">
             <span>Made with</span>
-            <Coffee className="h-4 w-4 inline" />
+            <Coffee className="h-4 w-4 text-brand-signal" />
             <span>and</span>
-            <Code className="h-4 w-4 inline" />
-            <span>• No Stack Overflow was harmed</span>
+            <Code2 className="h-4 w-4 text-brand-primary" />
           </div>
         </div>
-
-        {/* Hidden hint for easter egg */}
-        {true && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-xs text-center mt-4 text-white font-mono"
-          >
-            {clicks}/5 clicks... keep going 👀
-          </motion.p>
-        )}
       </div>
     </footer>
   );

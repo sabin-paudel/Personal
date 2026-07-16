@@ -1,51 +1,41 @@
 "use client";
+
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 export default function ProgressBar() {
   const { scrollYProgress } = useScroll();
 
-  // Smooth spring animation
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 120,
     damping: 25,
     restDelta: 0.001,
   });
 
-  // 0% ma hidden, scroll garesi visible
-  const opacity = useTransform(scrollYProgress, [0, 0.1, 0.1, 1], [0, 1, 1, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.05, 0.05, 1], [0, 1, 1, 1]);
 
   return (
     <>
-      {/* Progress bar with gradient */}
       <motion.div
-        className="fixed top-0 left-0 right-0 z-[60] h-[3px] "
+        className="fixed left-0 right-0 top-0 z-[60] h-[3px]"
         style={{ scaleX, opacity }}
       >
-        <div className="w-full h-full bg-gradient-to-r from-yellow-500 via-red-500 to-blue-500" />
+        <div className="h-full w-full bg-[linear-gradient(90deg,var(--brand-primary),rgba(255,255,255,0.5),var(--brand-signal))]" />
       </motion.div>
 
-      {/* Glowing dot at the end of progress bar */}
       <motion.div
-        className="fixed top-0 z-[60] w-1 h-[3px]"
+        className="fixed top-0 z-[60] h-[3px] w-1"
         style={{
           left: useSpring(scrollYProgress, {
             stiffness: 120,
             damping: 25,
           }),
-          scaleX: "100vw",
           opacity,
         }}
       >
         <motion.div
-          className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]"
-          animate={{
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          className="absolute right-0 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.6)]"
+          animate={{ scale: [1, 1.15, 1] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         />
       </motion.div>
     </>

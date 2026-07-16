@@ -6,6 +6,7 @@ import Script from "next/script";
 import "./globals.css";
 import SystemBar from "@/app/components/layout/SystemBar";
 import Navigation from "@/app/components/layout/Navigation";
+import Footer from "@/app/components/layout/Footer";
 import MouseGlow from "@/app/components/layout/MouseGlow";
 import ProgressBar from "@/app/components/ui/ProgressBar";
 import BubbleLoader from "./loading";
@@ -151,7 +152,13 @@ export default function RootLayout({
           <MouseGlow />
 
           <div className="fixed inset-0 -z-30 opacity-40">
-            <div className="absolute inset-0 bg-linear-to-r from-purple-500/10 via-blue-500/10 to-indigo-500/10 blur-3xl animate-gradient" />
+            <div
+              className="absolute inset-0 blur-3xl"
+              style={{
+                background:
+                  "radial-gradient(circle at 18% 20%, rgba(91, 124, 255, 0.12), transparent 35%), radial-gradient(circle at 82% 18%, rgba(255, 107, 44, 0.08), transparent 28%)",
+              }}
+            />
           </div>
 
           <SystemBar />
@@ -159,6 +166,7 @@ export default function RootLayout({
           <Navigation />
 
           <main className="pt-24 relative z-10">{children}</main>
+          <Footer />
         </LanguageProvider>
 
         <Script

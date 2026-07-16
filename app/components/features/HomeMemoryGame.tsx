@@ -101,16 +101,16 @@ export default function HomeMemoryGame() {
 
   return (
     <div className="w-full">
-      <div className="rounded-3xl border border-white/10 bg-zinc-900/50 p-4 backdrop-blur-md sm:p-6">
+      <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-md sm:p-5">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
           <div>
-            <h2 className="text-xl font-bold text-white sm:text-2xl">
+            <h2 className="text-lg font-semibold text-white sm:text-xl">
               {t.games.memory.title}
             </h2>
-            <p className="text-sm text-zinc-400">{subtitle}</p>
+            <p className="max-w-xl text-sm leading-6 text-white/62">{subtitle}</p>
           </div>
 
-          <div className="flex items-center gap-2 text-xs text-zinc-300">
+          <div className="flex items-center gap-2 text-xs text-white/75">
             <StatBadge label={t.games.memory.level} value={String(level)} />
             <StatBadge label={t.games.memory.best} value={String(bestLevel)} />
             <StatBadge
@@ -138,10 +138,10 @@ export default function HomeMemoryGame() {
                 type="button"
                 onClick={() => handlePick(index)}
                 disabled={state !== "input"}
-                className={`h-14 rounded-xl border transition-all duration-200 sm:h-18 ${
+                className={`h-14 rounded-xl border transition-all duration-200 sm:h-16 ${
                   isActive
-                    ? "border-cyan-300 bg-cyan-400/45 shadow-[0_0_16px_rgba(34,211,238,0.45)]"
-                    : "border-white/10 bg-white/5 hover:bg-white/10"
+                    ? "border-[color:var(--brand-primary)] bg-[color:var(--brand-primary)]/25 shadow-[0_0_16px_rgba(91,124,255,0.35)]"
+                    : "border-white/10 bg-white/[0.04] hover:bg-white/[0.07]"
                 }`}
                 aria-label={`cell-${index}`}
               />
@@ -154,7 +154,7 @@ export default function HomeMemoryGame() {
             <button
               type="button"
               onClick={startGame}
-              className="rounded-full border border-cyan-300/70 bg-cyan-500/25 px-5 py-2 text-sm font-semibold text-cyan-100 transition-colors hover:bg-cyan-500/40"
+              className="rounded-full border border-[color:var(--brand-primary)]/70 bg-[color:var(--brand-primary)]/20 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[color:var(--brand-primary)]/30"
             >
               {state === "failed"
                 ? t.games.memory.tryAgain

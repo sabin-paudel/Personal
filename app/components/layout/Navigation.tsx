@@ -28,7 +28,7 @@ export default function Navigation() {
       className="fixed top-3 left-1/2 z-50 w-[calc(100%-0.75rem)] max-w-[95%] -translate-x-1/2 sm:top-4 sm:w-full sm:max-w-xl"
     >
       {/* Glass Container */}
-      <div className="flex items-center justify-between gap-1 overflow-x-auto rounded-2xl border border-white/10 bg-white/10 px-1.5 py-2 shadow-lg backdrop-blur-md dark:bg-black/80 sm:gap-2 sm:rounded-full sm:px-3 sm:py-2.5">
+      <div className="flex items-center justify-between gap-1 overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.04] px-1.5 py-2 shadow-lg backdrop-blur-md sm:gap-2 sm:rounded-full sm:px-3 sm:py-2.5">
         {navItems.map((item) => {
           const isActive =
             item.href === "/"
@@ -41,10 +41,10 @@ export default function Navigation() {
                 href={item.href}
                 className={cn(
                   "flex shrink-0 items-center gap-1 rounded-full px-2 py-1.5 text-xs font-medium whitespace-nowrap transition-all duration-200 sm:gap-2 sm:px-3 sm:text-sm md:text-base",
-                  "hover:bg-white/5 dark:hover:bg-white/10",
+                  "hover:bg-white/5",
                   isActive
-                    ? "text-white bg-white/10 dark:bg-white/20 dark:text-white"
-                    : "text-zinc-600 dark:text-zinc-400 hover:text-white",
+                    ? "bg-[color:var(--brand-primary)]/16 text-white"
+                    : "text-zinc-300 hover:text-white",
                 )}
               >
                 <Icon className="h-4 w-4" />
@@ -62,7 +62,7 @@ export default function Navigation() {
             className={cn(
               "rounded-full px-2.5 py-1 text-xs font-semibold tracking-wide transition-colors",
               language === "en"
-                ? "bg-white/20 text-white"
+                ? "bg-white/15 text-white"
                 : "text-zinc-400 hover:text-white",
             )}
           >
@@ -74,7 +74,7 @@ export default function Navigation() {
             className={cn(
               "rounded-full px-2.5 py-1 text-xs font-semibold tracking-wide transition-colors",
               language === "np"
-                ? "bg-white/20 text-white"
+                ? "bg-white/15 text-white"
                 : "text-zinc-400 hover:text-white",
             )}
           >

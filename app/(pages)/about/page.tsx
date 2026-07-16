@@ -1,24 +1,24 @@
 "use client";
-import React from "react";
-import { motion, type Variants } from "framer-motion";
-import { getAboutData } from "@/app/lib/data/about";
-import { tooltips } from "@/app/lib/data/tooltips";
+
 import * as LucideIcons from "lucide-react";
+import { motion, type Variants } from "framer-motion";
 import {
+  Briefcase,
+  Code2,
+  GraduationCap,
+  MapPin,
   Github,
   Linkedin,
   Facebook,
   Instagram,
-  MapPin,
-  Briefcase,
-  GraduationCap,
-  Code2,
 } from "lucide-react";
+
 import Tooltip from "@/app/components/ui/Tooltip";
 import OptimizedImage from "@/app/components/ui/OptimizedImage";
+import { getAboutData } from "@/app/lib/data/about";
+import { tooltips } from "@/app/lib/data/tooltips";
 import { useLanguage } from "@/app/lib/i18n/LanguageProvider";
 
-// Icon mapping
 const socialIcons = {
   github: Github,
   linkedin: Linkedin,
@@ -44,21 +44,16 @@ const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
+    transition: { staggerChildren: 0.09 },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 18 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
+    transition: { duration: 0.45, ease: "easeOut" },
   },
 };
 
@@ -72,93 +67,61 @@ export default function About() {
     studies,
     technicalSkills,
   } = getAboutData(language);
-  const displayedWorkExperience =
-    workExperience.length > 0
-      ? workExperience
-      : getAboutData("en").workExperience;
 
   return (
-    <section
-      id="about"
-      className="overflow-visible px-4 py-20 sm:px-6 sm:py-24 lg:py-32"
-    >
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(280px,320px)_1fr] lg:gap-16 xl:gap-20">
-        {/* LEFT SIDEBAR */}
-        <div className="lg:sticky lg:top-32 h-fit space-y-6">
-          {/* Profile Card */}
+    <section id="about" className="px-4 py-16 sm:px-6 lg:py-20">
+      <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[340px_1fr] lg:gap-10">
+        <aside className="space-y-5 lg:sticky lg:top-28 lg:h-fit">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative rounded-3xl border border-white/10 bg-zinc-900/30 p-6 text-center backdrop-blur-sm sm:p-8"
+            className="section-shell p-5 sm:p-6"
           >
-            {/* Profile Image */}
-            <motion.div
-              whileHover={{ scale: 1.08 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="group relative mb-6 inline-block h-36 w-36 cursor-pointer sm:h-44 sm:w-44 md:h-50 md:w-50"
-            >
-              {/* normal image */}
+            <div className="mx-auto w-full max-w-60 overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/20">
               <OptimizedImage
                 src={profile.image}
-                alt="profile"
-                width={200}
-                height={200}
-                className="rounded-full absolute inset-0 border-2 border-white/20 transition-all duration-500 group-hover:blur-md group-hover:scale-110"
+                alt={profile.name}
+                width={640}
+                height={640}
+                priority
+                className="w-full object-cover"
               />
+            </div>
 
-              {/* hover image */}
-              <OptimizedImage
-                src={profile.hoverImage || profile.image} // optional separate hover image
-                alt="profile hover"
-                width={200}
-                height={200}
-                className="rounded-full absolute inset-0 border-2 border-white/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-              />
-            </motion.div>
+            <div className="mt-6 space-y-3 text-center">
+              <p className="text-xs uppercase tracking-[0.24em] text-white/45">
+                Profile
+              </p>
+              <h1 className="text-3xl font-semibold tracking-tight text-white">
+                {profile.name}
+              </h1>
+              <p className="text-sm text-white/68">{profile.role}</p>
+              <div className="flex items-center justify-center gap-2 text-sm text-white/65">
+                <MapPin className="h-4 w-4 text-brand-signal" />
+                <span>{profile.location}</span>
+              </div>
+            </div>
 
-            <motion.h2
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="bg-linear-to-r from-white to-zinc-300 bg-clip-text text-2xl font-bold text-transparent sm:text-3xl"
-            >
-              {profile.name}
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="text-white mt-2 text-base"
-            >
-              {profile.role}
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="flex items-center justify-center gap-2 mt-4 text-sm text-white"
-            >
-              <MapPin size={16} />
-              <span>{profile.location}</span>
-            </motion.div>
+            <div className="mt-6 rounded-2xl border border-white/10 bg-white/3 p-4">
+              <p className="text-xs uppercase tracking-[0.24em] text-white/45">
+                Current focus
+              </p>
+              <p className="mt-3 text-sm leading-6 text-white/72">
+                Shipping thoughtful React and Next.js experiences with a strong
+                attention to architecture, speed, and detail.
+              </p>
+            </div>
           </motion.div>
 
-          {/* Social Links */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="grid grid-cols-1 gap-3 sm:grid-cols-2"
+            transition={{ delay: 0.1 }}
+            className="grid grid-cols-2 gap-3"
           >
-            {socialLinks.map((link, index) => {
+            {socialLinks.map((link) => {
               const Icon = socialIcons[link.icon as keyof typeof socialIcons];
 
               return (
@@ -166,217 +129,190 @@ export default function About() {
                   key={link.name}
                   content={tooltips[link.icon as keyof typeof tooltips]}
                 >
-                  <motion.a
+                  <a
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4 + index * 0.1 }}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    className="group flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-zinc-900/50 px-4 py-3 transition-all hover:border-white/30 hover:bg-zinc-800/50"
+                    className="surface flex items-center justify-between gap-3 rounded-2xl px-4 py-3 text-sm text-white/84 transition-colors hover:border-white/18 hover:bg-white/6"
                   >
-                    <div className="flex items-center justify-between gap-4">
-                      <span className="font-normal text-base">{link.name}</span>
-                      <Icon
-                        size={20}
-                        className="text-white group-hover:text-white transition-colors"
-                      />
-                    </div>
-                  </motion.a>
+                    <span>{link.name}</span>
+                    <Icon className="h-4 w-4 text-brand-primary" />
+                  </a>
                 </Tooltip>
               );
             })}
           </motion.div>
-        </div>
+        </aside>
 
-        {/* RIGHT CONTENT */}
-        <div className="space-y-16 sm:space-y-20 lg:space-y-24">
-          {/* INTRODUCTION */}
+        <div className="space-y-12">
           <motion.section
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
+            className="section-shell p-6 sm:p-8"
           >
             <motion.div
               variants={itemVariants}
-              className="mb-6 flex items-center gap-3"
+              className="flex items-center gap-3"
             >
-              <div className="h-1 w-12 bg-linear-to-r from-blue-500 to-purple-500 rounded-full" />
-              <h3 className="text-2xl font-bold sm:text-3xl">
+              <div className="h-px w-10 bg-(--brand-primary)" />
+              <p className="text-xs uppercase tracking-[0.28em] text-white/50">
                 {t.about.introduction}
-              </h3>
+              </p>
             </motion.div>
-            <motion.p
+
+            <motion.div
               variants={itemVariants}
-              className="max-w-2xl text-base leading-relaxed text-white sm:text-lg"
+              className="mt-6 space-y-4 text-base leading-7 text-white/75 sm:text-lg"
             >
-              {introduction}
-            </motion.p>
+              {introduction
+                .trim()
+                .split("\n\n")
+                .filter(Boolean)
+                .map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+            </motion.div>
           </motion.section>
 
-          {/* EXPERIENCE */}
-          <motion.section
-            id="experience"
-            initial="visible"
-            animate="visible"
-            variants={containerVariants}
-          >
-            <motion.div
-              variants={itemVariants}
-              className="mb-8 flex items-center gap-3"
+          <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={containerVariants}
+              className="section-shell p-6 sm:p-8"
             >
-              <Briefcase className="text-blue-400" size={28} />
-              <h3 className="text-2xl font-bold sm:text-3xl">
-                {t.about.workExperience}
-              </h3>
-            </motion.div>
-            <div className="space-y-6">
-              {displayedWorkExperience.map((job) => (
-                <motion.div
-                  key={job.title}
-                  variants={itemVariants}
-                  whileHover={{ x: 6 }}
-                  className="relative border-l-2 border-zinc-800 pl-6 transition-colors hover:border-blue-500 sm:pl-8"
-                >
-                  {/* Dot indicator */}
-                  <div className="absolute -left-2.25 top-0 w-4 h-4 bg-blue-500 rounded-full border-4 border-zinc-900" />
+              <motion.div
+                variants={itemVariants}
+                className="flex items-center gap-3"
+              >
+                <Briefcase className="h-5 w-5 text-brand-primary" />
+                <h2 className="text-2xl font-semibold tracking-tight text-white">
+                  {t.about.workExperience}
+                </h2>
+              </motion.div>
 
-                  <div className="bg-zinc-900/30 border border-white/5 rounded-xl p-6 hover:border-white/20 transition-all">
-                    <h4 className="flex items-center gap-2 text-lg font-semibold sm:text-xl">
-                      <span className="text-blue-400">{job.title}</span>
-                      <span className="text-white">—</span>
-                      <span>{job.company}</span>
-                    </h4>
-                    <p className="text-sm text-white mt-1 flex items-center gap-2">
-                      <span className="inline-block w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                      {job.period}
-                    </p>
-                    <p className="text-white mt-4 leading-relaxed">
+              <div className="mt-6 space-y-4">
+                {workExperience.map((job) => (
+                  <motion.article
+                    key={job.title}
+                    variants={itemVariants}
+                    className="rounded-2xl border border-white/10 bg-white/3 p-5 transition-colors hover:border-white/16 hover:bg-white/5"
+                  >
+                    <div className="flex flex-wrap items-start justify-between gap-3">
+                      <div>
+                        <p className="text-lg font-semibold text-white">
+                          {job.title}
+                        </p>
+                        <p className="mt-1 text-sm text-white/65">
+                          {job.company}
+                        </p>
+                      </div>
+                      <span className="rounded-full border border-white/10 bg-white/3 px-3 py-1 text-xs uppercase tracking-[0.22em] text-white/55">
+                        {job.period}
+                      </span>
+                    </div>
+                    <p className="mt-4 max-w-2xl text-sm leading-6 text-white/70">
                       {job.description}
                     </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
+                  </motion.article>
+                ))}
+              </div>
+            </motion.section>
 
-          {/* STUDIES */}
-          <motion.section
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={containerVariants}
-          >
-            <motion.div
-              variants={itemVariants}
-              className="mb-8 flex items-center gap-3"
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={containerVariants}
+              className="section-shell p-6 sm:p-8"
             >
-              <GraduationCap className="text-purple-400" size={28} />
-              <h3 className="text-2xl font-bold sm:text-3xl">
-                {t.about.studies}
-              </h3>
-            </motion.div>
-            <div className="space-y-4">
-              {studies.map((item) => (
-                <motion.div
-                  key={item.title}
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.02 }}
-                  className="rounded-xl border border-white/5 bg-zinc-900/30 p-5 transition-all hover:border-white/20 hover:bg-zinc-900/50 sm:p-6"
-                >
-                  <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:gap-4">
-                    <div>
-                      <h4 className="font-semibold text-lg text-purple-400">
-                        {item.title}
-                      </h4>
-                      <p className="text-white mt-1">{item.school}</p>
+              <motion.div
+                variants={itemVariants}
+                className="flex items-center gap-3"
+              >
+                <GraduationCap className="h-5 w-5 text-brand-signal" />
+                <h2 className="text-2xl font-semibold tracking-tight text-white">
+                  {t.about.studies}
+                </h2>
+              </motion.div>
+
+              <div className="mt-6 space-y-3">
+                {studies.map((item) => (
+                  <motion.article
+                    key={item.title}
+                    variants={itemVariants}
+                    className="rounded-2xl border border-white/10 bg-white/3 p-5"
+                  >
+                    <div className="flex flex-wrap items-start justify-between gap-3">
+                      <div>
+                        <p className="text-base font-semibold text-white">
+                          {item.title}
+                        </p>
+                        <p className="mt-1 text-sm text-white/65">
+                          {item.school}
+                        </p>
+                      </div>
+                      <span className="rounded-full border border-white/10 bg-white/3 px-3 py-1 text-xs text-white/60">
+                        {item.info}
+                      </span>
                     </div>
-                    <span className="text-sm text-white bg-zinc-800 px-3 py-1 rounded-full">
-                      {item.info}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
+                  </motion.article>
+                ))}
+              </div>
+            </motion.section>
+          </div>
 
-          {/* SKILLS */}
           <motion.section
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
-            className="relative rounded-3xl"
+            className="section-shell p-6 sm:p-8"
           >
-            {/* Section Header */}
             <motion.div
               variants={itemVariants}
-              className="mb-8 flex items-center gap-3 text-start sm:mb-12 sm:gap-4"
+              className="flex items-center gap-3"
             >
-              <Code2 className="text-pink-400" size={32} />
-              <h3 className="text-start text-2xl font-bold tracking-tight text-white sm:text-[30px]">
+              <Code2 className="h-5 w-5 text-brand-primary" />
+              <h2 className="text-2xl font-semibold tracking-tight text-white">
                 {t.about.technicalSkills}
-              </h3>
+              </h2>
             </motion.div>
 
-            {/* Skill Categories */}
-            <div className="space-y-12">
-              {Object.entries(technicalSkills).map(
-                ([category, skills], catIndex) => (
-                  <motion.div key={category} variants={itemVariants}>
-                    <motion.h4
-                      initial={{ opacity: 0, y: -10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      className="text-lg md:text-xl font-semibold mb-6 uppercase text-white tracking-wide text-left"
-                    >
-                      {category}
-                    </motion.h4>
+            <div className="mt-6 grid gap-6 lg:grid-cols-3">
+              {Object.entries(technicalSkills).map(([category, skills]) => (
+                <motion.div
+                  key={category}
+                  variants={itemVariants}
+                  className="space-y-4"
+                >
+                  <h3 className="text-sm uppercase tracking-[0.24em] text-white/45">
+                    {category}
+                  </h3>
+                  <div className="grid grid-cols-2 gap-3">
+                    {skills.map((skill) => {
+                      const Icon =
+                        skillIcons[skill as keyof typeof skillIcons] ||
+                        LucideIcons.Code2;
 
-                    {/* Skill Grid */}
-                    <motion.div
-                      className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4 md:gap-6"
-                      variants={containerVariants}
-                    >
-                      {skills.map((skill, index) => {
-                        const Icon =
-                          skillIcons[skill as keyof typeof skillIcons] ||
-                          LucideIcons.Code;
-                        return (
-                          <motion.div
-                            key={skill}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{
-                              delay: catIndex * 0.1 + index * 0.05,
-                              type: "spring",
-                              stiffness: 120,
-                              damping: 16,
-                            }}
-                            whileHover={{ scale: 1.1 }}
-                            className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-2xl bg-zinc-800 p-3 text-center shadow-lg transition-colors duration-300 hover:bg-zinc-700 sm:p-4"
-                          >
-                            <motion.div
-                              whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-                              transition={{ duration: 0.6, ease: "easeInOut" }}
-                              className="text-4xl text-white"
-                            >
-                              <Icon size={32} />
-                            </motion.div>
-                            <span className="text-white font-medium text-sm md:text-base">
-                              {skill}
-                            </span>
-                          </motion.div>
-                        );
-                      })}
-                    </motion.div>
-                  </motion.div>
-                ),
-              )}
+                      return (
+                        <div
+                          key={skill}
+                          className="rounded-2xl border border-white/10 bg-white/3 p-4"
+                        >
+                          <Icon className="h-5 w-5 text-brand-primary" />
+                          <p className="mt-4 text-sm font-medium text-white">
+                            {skill}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </motion.section>
         </div>

@@ -1,21 +1,20 @@
-'use client'
-import { useState, useEffect } from 'react'
-import { format } from 'date-fns'
+"use client";
 
-export function useTime(formatString: string = 'hh:mm:ss') {
-  const [time, setTime] = useState<string>('')
+import { useEffect, useState } from "react";
+import { format } from "date-fns";
+
+export function useTime(formatString: string = "hh:mm:ss") {
+  const [time, setTime] = useState<string>(() =>
+    format(new Date(), formatString),
+  );
 
   useEffect(() => {
-    // Set initial time
-    setTime(format(new Date(), formatString))
+    const interval = window.setInterval(() => {
+      setTime(format(new Date(), formatString));
+    }, 1000);
 
-    // Update every second
-    const interval = setInterval(() => {
-      setTime(format(new Date(), formatString))
-    }, 1000)
+    return () => window.clearInterval(interval);
+  }, [formatString]);
 
-    return () => clearInterval(interval)
-  }, [formatString])
-
-  return time
+  return time;
 }

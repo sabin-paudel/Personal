@@ -9,12 +9,17 @@ interface ThemeToggleProps {
 }
 
 export default function ThemeToggle({ inline = false }: ThemeToggleProps) {
-  const [mode, setMode] = useState<"dark" | "light">("dark");
+  const [mode, setMode] = useState<"dark" | "light">(() => {
+    if (typeof window === "undefined") return "dark";
 
-  // Keep the app in dark visual theme and only animate lamp for "light mode"
+    const storedTheme = window.localStorage.getItem("theme");
+    return storedTheme === "light" ? "light" : "dark";
+  });
+
   useEffect(() => {
-    document.documentElement.classList.add("dark");
-    document.documentElement.classList.toggle("lamp-on", mode === "light");
+    const root = document.documentElement;
+    root.classList.add("dark");
+    root.classList.toggle("lamp-on", mode === "light");
     localStorage.setItem("theme", mode);
   }, [mode]);
 
@@ -33,7 +38,7 @@ export default function ThemeToggle({ inline = false }: ThemeToggleProps) {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       aria-label="Toggle lamp mode"
-      title={mode === "light" ? "Switch to dark mode" : "Switch to light mode"}
+      title={mode === "light" ? "Switch to dark mode" : "Switch to lamp mode"}
     >
       <AnimatePresence mode="wait">
         {mode === "light" ? (
@@ -44,7 +49,7 @@ export default function ThemeToggle({ inline = false }: ThemeToggleProps) {
             exit={{ rotate: 90, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <Sun className="h-5 w-5 text-yellow-500" />
+            <Sun className="h-5 w-5 text-brand-signal" />
           </motion.div>
         ) : (
           <motion.div
@@ -54,7 +59,7 @@ export default function ThemeToggle({ inline = false }: ThemeToggleProps) {
             exit={{ rotate: -90, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <Moon className="h-5 w-5 text-blue-600" />
+            <Moon className="h-5 w-5 text-brand-primary" />
           </motion.div>
         )}
       </AnimatePresence>

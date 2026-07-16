@@ -1,10 +1,35 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  ChevronRight,
+  Code2,
+  LayoutPanelTop,
+  Sparkles,
+} from "lucide-react";
+
 import OptimizedImage from "../ui/OptimizedImage";
 import { useLanguage } from "@/app/lib/i18n/LanguageProvider";
+
+const heroCards = [
+  {
+    label: "Focus",
+    value: "Frontend systems",
+    detail: "Design systems, app architecture, and performance-minded UI",
+  },
+  {
+    label: "Base",
+    value: "Pokhara, Nepal",
+    detail: "Working across products, tooling, and polished user journeys",
+  },
+  {
+    label: "Stack",
+    value: "React + Next.js",
+    detail: "TypeScript, Tailwind, motion, and practical backend glue",
+  },
+] as const;
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -12,191 +37,181 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[70vh] items-start justify-center overflow-hidden px-4 pt-24 sm:min-h-[78vh] sm:px-6 md:min-h-[82vh] lg:min-h-[80vh] lg:pt-32"
+      className="relative overflow-hidden px-4 pb-16 pt-24 sm:px-6 sm:pt-28 lg:pt-32"
     >
-      {/* Radial spotlight */}
-      <div className="absolute">
-        <div className="absolute bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_60%)]" />
-        <div className="absolute  bg-linear-to-b from-transparent via-transparent to-black/80" />
-      </div>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-80"
+        style={{
+          background:
+            "radial-gradient(circle at 18% 12%, rgba(91, 124, 255, 0.1), transparent 24%), radial-gradient(circle at 82% 16%, rgba(255, 107, 44, 0.08), transparent 22%)",
+        }}
+      />
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto max-w-5xl px-0 text-center lg:px-6">
-        {/* Heading */}
-
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-[clamp(2.2rem,10vw,5.8rem)] font-bold leading-[1.2] tracking-tight text-white"
-        >
-          {t.hero.headingLine1}
-
-          <motion.span
-            className="inline-block text-white bg-clip-text "
-            animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            style={{
-              backgroundSize: "200% 200%",
-            }}
+      <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[1.25fr_0.95fr] lg:gap-10">
+        <div className="space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="section-kicker w-fit"
           >
-            {t.hero.headingHighlight}
-          </motion.span>
-        </motion.h1>
+            <Sparkles className="h-3.5 w-3.5 text-brand-signal" />
+            <span>{t.home.badge}</span>
+          </motion.div>
 
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="mx-auto mt-2 max-w-2xl text-base leading-relaxed text-white sm:text-lg md:text-xl"
-        >
-          {t.hero.intro}
-        </motion.p>
-
-        {/* ABOUT BUTTON */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="mt-8 flex justify-center"
-        >
-          <Link
-            href="/about"
-            className="
-      group relative flex items-center gap-4
-      rounded-full px-2 py-2
-      overflow-hidden
-      transition-all duration-500 ease-out
-    "
-          >
-            {/* Gradient Background Layer */}
-            <div
-              className="
-      absolute inset-0 rounded-full
-      bg-linear-to-r from-purple-500/10 via-blue-500/10 to-cyan-500/10
-      blur-xl opacity-0 group-hover:opacity-100
-      transition-opacity duration-500
-    "
-            />
-
-            {/* Glass Morphism Base */}
-            <div
-              className="
-      absolute inset-0 rounded-full
-      border border-white/15
-      bg-white/5 backdrop-blur-xl
-      transition-all duration-500
-      group-hover:border-white/30
-      group-hover:bg-white/10
-    "
-            />
-
-            {/* Shimmer Effect */}
-            <div
-              className="
-      absolute inset-0 rounded-full
-      bg-linear-to-r from-transparent via-white/20 to-transparent
-      -translate-x-full group-hover:translate-x-full
-      transition-transform duration-1000 ease-in-out
-    "
-            />
-
-            {/* Content Container */}
-            <div className="relative z-10 flex items-center gap-3 sm:gap-4">
-              {/* Profile Image with Glow */}
-              <div className="relative">
-                <div
-                  className="
-          absolute inset-0 rounded-full
-          bg-linear-to-r from-purple-500 via-blue-500 to-cyan-500
-          blur-md opacity-0 group-hover:opacity-60
-          transition-opacity duration-500
-        "
-                />
-                <div
-                  className="
-          relative w-10 h-10 rounded-full overflow-hidden 
-          
-          group-hover:border-white/40
-         
-          
-        "
-                >
-                  <OptimizedImage
-                    src="/picofme.png"
-                    alt="Hero Image"
-                    width={320}
-                    height={240}
-                    className="rounded-xl"
-                    priority
-                  />
-                </div>
-              </div>
-
-              {/* Text with Gradient */}
-              <span
-                className="
-              text-base font-medium tracking-wide sm:text-[20px]
-        bg-linear-to-r from-white via-white to-white/80
-        bg-clip-text text-transparent
-        group-hover:from-purple-200 group-hover:via-blue-200 group-hover:to-cyan-200
-        transition-all duration-500
-      "
-              >
-                {t.hero.aboutButton}
+          <div className="max-w-3xl space-y-6">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-[clamp(2.8rem,8vw,5.8rem)] font-semibold leading-[0.95] tracking-tight text-white"
+            >
+              <span className="block">{t.hero.headingLine1}</span>
+              <span className="block text-gradient">
+                {t.hero.headingHighlight}
               </span>
+            </motion.h1>
 
-              {/* Arrow with Smooth Animation */}
-              <ChevronRight
-                size={25}
-                className="
-          text-white/80
-          opacity-0 -translate-x-3 translate-y-1
-          transition-all duration-500 ease-out
-          group-hover:opacity-100
-          group-hover:translate-x-0
-          group-hover:translate-y-0
-          group-hover:text-cyan-300
-        "
-              />
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="max-w-2xl text-pretty text-base leading-7 text-white/78 sm:text-lg"
+            >
+              {t.hero.intro}
+            </motion.p>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex flex-wrap gap-3"
+          >
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 rounded-full bg-(--brand-primary) px-5 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5"
+            >
+              {t.home.viewAllProjects}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/4 px-5 py-3 text-sm font-semibold text-white/88 transition-colors duration-300 hover:border-white/20 hover:bg-white/6"
+            >
+              {t.hero.aboutButton}
+              <ChevronRight className="h-4 w-4 text-brand-primary" />
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="grid gap-3 sm:grid-cols-3"
+          >
+            {heroCards.map((card) => (
+              <div key={card.label} className="surface rounded-2xl p-4">
+                <p className="text-xs uppercase tracking-[0.24em] text-white/45">
+                  {card.label}
+                </p>
+                <p className="mt-3 text-base font-semibold text-white">
+                  {card.value}
+                </p>
+                <p className="mt-2 text-sm leading-6 text-white/68">
+                  {card.detail}
+                </p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 24 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.9, delay: 0.15 }}
+          className="relative min-h-112 overflow-hidden rounded-4xl border border-white/10 bg-black/20 sm:min-h-136"
+        >
+          <OptimizedImage
+            src="/image.png"
+            alt="Sabin Paudel portrait"
+            fill
+            priority
+            className="absolute inset-0 z-0 object-cover object-[50%_18%]"
+          />
+
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 z-10 bg-[linear-gradient(180deg,rgba(5,5,5,0.12)_0%,rgba(5,5,5,0.24)_34%,rgba(5,5,5,0.72)_100%)]"
+          />
+
+          <div className="absolute inset-x-0 bottom-0 z-20 p-5 sm:p-6">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="rounded-full border border-white/10 bg-black/35 px-3 py-1.5 text-xs uppercase tracking-[0.24em] text-white/70 backdrop-blur-md">
+                Product-minded frontend craft
+              </div>
+              <div className="rounded-full border border-white/10 bg-black/35 px-3 py-1.5 text-xs font-medium text-white/70 backdrop-blur-md">
+                Human pulse
+              </div>
             </div>
 
-            {/* Hover Glow Edge */}
-            <div
-              className="
-      absolute inset-0 rounded-full
-      shadow-[0_0_30px_rgba(139,92,246,0)]
-      group-hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]
-      transition-shadow duration-500
-    "
-            />
-          </Link>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur-md">
+                <div className="flex items-center gap-2 text-brand-signal">
+                  <LayoutPanelTop className="h-4 w-4" />
+                  <span className="text-xs uppercase tracking-[0.24em]">
+                    Product lens
+                  </span>
+                </div>
+                <p className="mt-3 text-sm leading-6 text-white/76">
+                  Building interfaces that read clearly, feel calm under
+                  pressure, and still carry enough personality to be remembered.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur-md">
+                <div className="flex items-center gap-2 text-brand-primary">
+                  <Code2 className="h-4 w-4" />
+                  <span className="text-xs uppercase tracking-[0.24em]">
+                    Core stack
+                  </span>
+                </div>
+                <p className="mt-3 text-sm leading-6 text-white/76">
+                  React, Next.js, TypeScript, Tailwind, motion systems, and
+                  practical product thinking.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="surface rounded-2xl p-4">
+              <p className="text-xs uppercase tracking-[0.24em] text-white/45">
+                Availability
+              </p>
+              <p className="mt-3 text-base font-semibold text-white">
+                Open for serious frontend and product work
+              </p>
+              <p className="mt-2 text-sm leading-6 text-white/68">
+                Freelance, collaborations, and production-minded builds.
+              </p>
+            </div>
+            {/* <div className="surface rounded-2xl p-4">
+              <p className="text-xs uppercase tracking-[0.24em] text-white/45">
+                Signature feature
+              </p>
+              <p className="mt-3 text-base font-semibold text-white">
+                STORY / X-RAY project views
+              </p>
+              <p className="mt-2 text-sm leading-6 text-white/68">
+                A deliberate way to show design decisions, technical detail, and
+                the reasoning behind each build.
+              </p>
+            </div> */}
+          </div>
         </motion.div>
       </div>
-
-      {/* Scroll Indicator */}
-      {/* <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 12, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="lg:flex flex-col items-center  text-white hidden "
-        >
-          <span className="text-[14px] mb-2 font-mono">Dont scroll</span>
-          <ArrowDown size={18} className="text-white text-center" />
-        </motion.div>
-      </motion.div> */}
     </section>
   );
 }

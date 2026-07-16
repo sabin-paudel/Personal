@@ -120,15 +120,17 @@ export default function HomeArcadeGame() {
 
   return (
     <div className="w-full">
-      <div className="rounded-3xl border border-white/10 bg-zinc-900/50 p-4 backdrop-blur-md sm:p-6">
+      <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-md sm:p-5">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
           <div>
-            <h2 className="text-xl font-bold text-white sm:text-2xl">
+            <h2 className="text-lg font-semibold text-white sm:text-xl">
               {t.games.arcade.title}
             </h2>
-            <p className="text-sm text-zinc-400">{t.games.arcade.subtitle}</p>
+            <p className="max-w-xl text-sm leading-6 text-white/62">
+              {t.games.arcade.subtitle}
+            </p>
           </div>
-          <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-300">
+          <div className="flex flex-wrap items-center gap-2 text-xs text-white/75">
             <StatBadge label={t.games.arcade.level} value={String(level)} />
             <StatBadge label={t.games.arcade.score} value={String(score)} />
             <StatBadge label={t.games.arcade.best} value={String(bestScore)} />
@@ -137,7 +139,7 @@ export default function HomeArcadeGame() {
           </div>
         </div>
 
-        <div className="relative h-80 w-full overflow-hidden rounded-2xl border border-white/10 bg-black/50 sm:h-105">
+        <div className="relative h-72 w-full overflow-hidden rounded-2xl border border-white/10 bg-black/35 sm:h-96">
           {gameState === "idle" && (
             <Overlay
               title={t.games.arcade.readyTitle}
@@ -157,11 +159,11 @@ export default function HomeArcadeGame() {
           )}
 
           {gameState === "playing" && (
-            <button
+              <button
               type="button"
               aria-label="target"
               onClick={handleTargetClick}
-              className="absolute rounded-full border-2 border-cyan-300 bg-cyan-400/40 shadow-[0_0_24px_rgba(34,211,238,0.45)] transition-transform hover:scale-105"
+              className="absolute rounded-full border-2 border-[color:var(--brand-primary)] bg-[color:var(--brand-primary)]/30 shadow-[0_0_24px_rgba(91,124,255,0.35)] transition-transform hover:scale-105"
               style={{
                 width: `${targetSize}px`,
                 height: `${targetSize}px`,
@@ -191,13 +193,13 @@ function Overlay({
   onAction: () => void;
 }) {
   return (
-    <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/60 text-center">
-      <h3 className="text-xl font-bold text-white sm:text-2xl">{title}</h3>
-      <p className="text-sm text-zinc-300">{subtitle}</p>
+    <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/60 px-4 text-center">
+      <h3 className="text-xl font-semibold text-white sm:text-2xl">{title}</h3>
+      <p className="max-w-lg text-sm leading-6 text-white/72">{subtitle}</p>
       <button
         type="button"
         onClick={onAction}
-        className="rounded-full border border-cyan-300/70 bg-cyan-500/25 px-5 py-2 text-sm font-semibold text-cyan-100 transition-colors hover:bg-cyan-500/40"
+        className="rounded-full border border-[color:var(--brand-primary)]/70 bg-[color:var(--brand-primary)]/20 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[color:var(--brand-primary)]/30"
       >
         {actionLabel}
       </button>

@@ -1,26 +1,34 @@
 export interface Project {
-  id: string
-  title: string
-  description: string
-  longDescription: string
-  image: string
-  tags: string[]
-  liveUrl?: string
-  githubUrl?: string
-  featured: boolean
+  id: string;
+  title: string;
+  description: string;
+  longDescription: string;
+  image: string;
+  tags: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+  featured: boolean;
+  storyPoints: string[];
+  xray: {
+    challenge: string;
+    approach: string;
+    impact: string;
+    stackFocus: string[];
+    notes: string;
+  };
 }
 
 export interface Skill {
-  name: string
-  category: 'frontend' | 'backend' | 'tools' | 'other'
-  icon?: string
-  proficiency?: number
+  name: string;
+  category: "frontend" | "backend" | "tools" | "other";
+  icon?: string;
+  proficiency?: number;
 }
 
 export interface Experience {
-  company: string
-  position: string
-  duration: string
-  description: string
-  current?: boolean
+  company: string;
+  position: string;
+  duration: string;
+  description: string;
+  current?: boolean;
 }

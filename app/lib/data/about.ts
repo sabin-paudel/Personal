@@ -5,14 +5,14 @@ const profileByLocale = {
     name: "Sabin Paudel",
     role: "Full Stack Developer",
     location: "Pokhara, Nepal 🇳🇵",
-    image: "/picofme.png",
+    image: "/aboutimage.png",
     hoverImage: "/picofmehover.png",
   },
   np: {
     name: "Sabin Paudel",
     role: "फुल स्ट्याक डेभलपर",
     location: "पोखरा, नेपाल 🇳🇵",
-    image: "/picofme.png",
+    image: "/aboutimage.png",
     hoverImage: "/picofmehover.png",
   },
 } as const;
