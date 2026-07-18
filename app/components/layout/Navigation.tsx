@@ -37,6 +37,7 @@ export default function Navigation() {
             <MagneticWrapper key={item.href} strength={0.12}>
               <Link
                 href={item.href}
+                aria-label={item.label}
                 className={cn(
                   "flex shrink-0 items-center gap-1 rounded-full px-4 py-3 text-xs font-medium whitespace-nowrap transition-all duration-200 sm:gap-2 sm:px-3 sm:py-1.5 sm:text-sm md:text-base",
                   "hover:bg-white/5",

@@ -2,7 +2,15 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Coffee, Code2 } from "lucide-react";
+import {
+  ArrowUpRight,
+  Coffee,
+  Code2,
+  Facebook,
+  Linkedin,
+  Share2,
+  Twitter,
+} from "lucide-react";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import confetti from "canvas-confetti";
@@ -13,7 +21,28 @@ import { SOCIAL_LINKS } from "@/app/lib/constants/social";
 export default function Footer() {
   const pathname = usePathname();
   const [clicks, setClicks] = useState(0);
+  const [shareStatus, setShareStatus] = useState("");
   const currentYear = new Date().getFullYear();
+  const shareUrl = "https://sabinpaudel.com.np";
+  const shareText = "Sabin Paudel | Frontend Developer";
+
+  const shareLinks = [
+    {
+      name: "Share on LinkedIn",
+      href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
+      icon: Linkedin,
+    },
+    {
+      name: "Share on Facebook",
+      href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
+      icon: Facebook,
+    },
+    {
+      name: "Share on X",
+      href: `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`,
+      icon: Twitter,
+    },
+  ] as const;
 
   const handleLogoClick = () => {
     setClicks((prev) => prev + 1);
@@ -25,6 +54,21 @@ export default function Footer() {
         origin: { y: 0.8 },
       });
       setClicks(0);
+    }
+  };
+
+  const handleNativeShare = async () => {
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: shareText, url: shareUrl });
+        return;
+      }
+
+      await navigator.clipboard.writeText(shareUrl);
+      setShareStatus("Portfolio link copied");
+      window.setTimeout(() => setShareStatus(""), 2000);
+    } catch {
+      // Closing the native share sheet should not surface an application error.
     }
   };
 
@@ -59,10 +103,10 @@ export default function Footer() {
             </h3>
             <ul className="mt-4 space-y-3 text-sm text-white/78">
               {[
-                { label: "Home", href: "/" },
-                { label: "About", href: "/about" },
-                { label: "Work", href: "/projects" },
-                { label: "Contact", href: "/contact" },
+                { label: "Sabin’s homepage", href: "/" },
+                { label: "About Sabin", href: "/about" },
+                { label: "Selected projects", href: "/projects" },
+                { label: "Contact Sabin", href: "/contact" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -100,6 +144,41 @@ export default function Footer() {
                   </MagneticWrapper>
                 );
               })}
+            </div>
+
+            <h3 className="mt-7 text-sm uppercase tracking-[0.24em] text-white/45">
+              Share portfolio
+            </h3>
+            <div className="mt-4 flex items-center gap-2">
+              {shareLinks.map((link) => {
+                const Icon = link.icon;
+
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.name}
+                    title={link.name}
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-[#141414] text-white/75 transition-colors hover:bg-[#1c1c1c] hover:text-white"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                );
+              })}
+              <button
+                type="button"
+                onClick={handleNativeShare}
+                aria-label="Share portfolio or copy link"
+                title="Share portfolio or copy link"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-[#141414] text-white/75 transition-colors hover:bg-[#1c1c1c] hover:text-white"
+              >
+                <Share2 className="h-4 w-4" />
+              </button>
+              <span className="sr-only" aria-live="polite">
+                {shareStatus}
+              </span>
             </div>
           </div>
         </div>
