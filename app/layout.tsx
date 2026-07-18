@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Sabin Paudel is a Frontend Developer from Pokhara, Nepal, building modern web applications with React, Next.js, and TypeScript.",
+    "Explore Sabin Paudel’s portfolio, featuring modern React, Next.js, and TypeScript applications, thoughtful frontend systems, selected projects, and development experience from Pokhara, Nepal.",
 
   applicationName: "Sabin Paudel Portfolio",
   authors: [{ name: "Sabin Paudel", url: "https://sabinpaudel.com.np" }],
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     url: "/",
     title: "Sabin Paudel | Frontend Developer",
     description:
-      "Explore the portfolio, projects, and skills of Sabin Paudel, a Frontend Developer from Pokhara, Nepal building modern web applications with React, Next.js, and TypeScript.",
+      "Explore Sabin Paudel’s portfolio, featuring modern React, Next.js, and TypeScript applications, thoughtful frontend systems, selected projects, and development experience from Pokhara, Nepal.",
     siteName: "Sabin Paudel Portfolio",
     images: [
       {
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sabin Paudel | Frontend Developer",
     description:
-      "Frontend Developer from Pokhara, Nepal specializing in React, Next.js, TypeScript, and modern web application development.",
+      "Explore Sabin Paudel’s portfolio, featuring modern React, Next.js, and TypeScript applications, thoughtful frontend systems, selected projects, and development experience from Pokhara, Nepal.",
     images: ["/opengraph-image"],
   },
 };
