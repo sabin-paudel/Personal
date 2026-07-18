@@ -2,7 +2,7 @@ const profile = {
   name: "Sabin Paudel",
   role: "Frontend Developer",
   location: "Pokhara, Nepal 🇳🇵",
-  image: "/aboutimage.png",
+  image: "/image.png",
 } as const;
 
 export const socialLinks = [

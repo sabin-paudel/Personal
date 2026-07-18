@@ -46,8 +46,7 @@ function DesktopSystemBar() {
               <div
                 className="flex items-baseline gap-1 text-right"
                 style={{
-                  fontFamily:
-                    "var(--font-time), var(--font-geist-mono), monospace",
+                  fontFamily: "var(--font-geist-mono), monospace",
                 }}
               >
                 <span className="text-sm tabular-nums tracking-[0.18em] text-white sm:text-base">

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { GeistMono, GeistSans } from "geist/font";
-import { Azeret_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 
 import "./globals.css";
@@ -11,11 +10,17 @@ import MouseGlow from "@/app/components/layout/MouseGlow";
 import ProgressBar from "@/app/components/ui/ProgressBar";
 import { cn } from "@/app/lib/utils/cn";
 
-const timeFont = Azeret_Mono({
+const geistSans = Geist({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-time",
+  variable: "--font-geist-sans",
   display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+  display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -109,10 +114,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        GeistSans.variable,
-        GeistMono.variable,
-        timeFont.variable,
-        GeistSans.className,
+        geistSans.variable,
+        geistMono.variable,
+        geistSans.className,
       )}
     >
       <body className="antialiased app-bg text-foreground overflow-x-hidden transition-colors duration-300">
