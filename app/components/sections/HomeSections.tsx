@@ -5,9 +5,6 @@ import { motion } from "framer-motion";
 import { ArrowRight, Code2, Layers3, Sparkles, Wand2 } from "lucide-react";
 
 import { getFeaturedProjects } from "@/app/types/project";
-import HomeArcadeGame from "@/app/components/features/HomeArcadeGame";
-import HomeMemoryGame from "@/app/components/features/HomeMemoryGame";
-import HomeFunAstrologyGame from "@/app/components/features/HomeFunAstrologyGame";
 import OptimizedImage from "@/app/components/ui/OptimizedImage";
 
 const principleCards = [
@@ -32,8 +29,8 @@ export default function HomeSections() {
   const featuredProjects = getFeaturedProjects();
 
   return (
-    <div className="mx-auto max-w-7xl space-y-16 px-4 pb-20 sm:px-6 lg:space-y-20">
-      <section className="section-shell p-6 sm:p-8 lg:p-10">
+    <div className="mx-auto max-w-7xl space-y-24 px-4 pb-8 sm:px-6 lg:space-y-32">
+      <section className="rounded-[2rem] bg-white/[0.025] p-6 sm:p-8 sm:shadow-[0_24px_80px_rgba(0,0,0,0.22)] lg:p-10">
         <div className="max-w-3xl space-y-4">
           <div className="section-kicker w-fit">
             <Sparkles className="h-3.5 w-3.5 text-brand-signal" />
@@ -59,10 +56,10 @@ export default function HomeSections() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.45, delay: index * 0.06 }}
-                className="rounded-2xl border border-white/10 bg-white/3 p-5"
+                className="rounded-2xl bg-white/[0.035] p-5 transition-colors hover:bg-white/[0.055]"
               >
                 <div className="flex items-center gap-3">
-                  <div className="rounded-xl border border-white/10 bg-white/4 p-3">
+                  <div className="rounded-xl bg-white/[0.06] p-3">
                     <Icon className="h-4 w-4 text-brand-primary" />
                   </div>
                   <h3 className="text-base font-semibold text-white">
@@ -87,7 +84,7 @@ export default function HomeSections() {
           </Link>
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/4 px-5 py-3 text-sm font-semibold text-white/86 transition-colors hover:bg-white/6"
+            className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-5 py-3 text-sm font-semibold text-white/86 transition-colors hover:bg-white/[0.1]"
           >
             View all projects
             <ArrowRight className="h-4 w-4 text-brand-signal" />
@@ -111,8 +108,11 @@ export default function HomeSections() {
 
         <div className="grid gap-4 lg:grid-cols-2">
           {featuredProjects.map((project) => (
-            <article key={project.id} className="section-shell overflow-hidden">
-              <div className="relative aspect-16/10 overflow-hidden border-b border-white/10 bg-white/3">
+            <article
+              key={project.id}
+              className="overflow-hidden rounded-[2rem] bg-white/[0.03] transition-transform duration-300 sm:shadow-[0_24px_70px_rgba(0,0,0,0.24)] sm:hover:-translate-y-1"
+            >
+              <div className="relative aspect-16/10 overflow-hidden bg-white/3">
                 <OptimizedImage
                   src={project.image}
                   alt={project.title}
@@ -130,7 +130,7 @@ export default function HomeSections() {
                       {project.title}
                     </h3>
                   </div>
-                  <span className="rounded-full border border-white/10 bg-white/4 px-3 py-1 text-xs uppercase tracking-[0.22em] text-white/60">
+                  <span className="rounded-full bg-white/[0.06] px-3 py-1 text-xs uppercase tracking-[0.22em] text-white/60">
                     X-Ray
                   </span>
                 </div>
@@ -141,7 +141,7 @@ export default function HomeSections() {
                   {project.tags.slice(0, 4).map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-white/10 bg-white/3 px-3 py-1 text-xs font-medium text-white/70"
+                      className="rounded-full bg-white/[0.055] px-3 py-1 text-xs font-medium text-white/70"
                     >
                       {tag}
                     </span>
@@ -160,69 +160,6 @@ export default function HomeSections() {
         </div>
       </section>
 
-      <section className="space-y-6">
-        <div className="max-w-3xl space-y-3">
-          <div className="section-kicker w-fit">
-            <Sparkles className="h-3.5 w-3.5 text-brand-signal" />
-            <span>Interaction playground</span>
-          </div>
-          <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            Interaction playground
-          </h2>
-          <p className="max-w-2xl text-base leading-7 text-white/72">
-            Small experiments that keep the portfolio playful without
-            distracting from the work.
-          </p>
-        </div>
-
-        <div className="grid gap-6 xl:grid-cols-3">
-          <div className="section-shell p-4 sm:p-5">
-            <div className="mb-4">
-              <p className="text-sm uppercase tracking-[0.22em] text-white/45">
-                Game one
-              </p>
-              <h3 className="mt-2 text-xl font-semibold text-white">
-                Arcade Aim Challenge
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-white/68">
-                Hit moving targets. Every 5 score points increases level and
-                speed.
-              </p>
-            </div>
-            <HomeArcadeGame />
-          </div>
-
-          <div className="section-shell p-4 sm:p-5">
-            <div className="mb-4">
-              <p className="text-sm uppercase tracking-[0.22em] text-white/45">
-                Game two
-              </p>
-              <h3 className="mt-2 text-xl font-semibold text-white">
-                Pattern Memory Rush
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-white/68">
-                Memorize the flash sequence and replay it.
-              </p>
-            </div>
-            <HomeMemoryGame />
-          </div>
-
-          <div className="section-shell p-4 sm:p-5">
-            <div className="mb-4">
-              <p className="text-sm uppercase tracking-[0.22em] text-white/45">
-                Game three
-              </p>
-              <h3 className="mt-2 text-xl font-semibold text-white">
-                Fun Astrology Oracle
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-white/68">
-                Enter your details and reveal a playful future prediction.
-              </p>
-            </div>
-            <HomeFunAstrologyGame />
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

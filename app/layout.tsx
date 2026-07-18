@@ -62,15 +62,6 @@ export const metadata: Metadata = {
     canonical: "/",
   },
 
-  icons: {
-    icon: [
-      { url: "/picofme.png", type: "image/png", sizes: "32x32" },
-      { url: "/picofme.png", type: "image/png", sizes: "192x192" },
-    ],
-    shortcut: ["/picofme.png"],
-    apple: [{ url: "/picofme.png", sizes: "180x180", type: "image/png" }],
-  },
-
   robots: {
     index: true,
     follow: true,
@@ -133,7 +124,7 @@ export default function RootLayout({
 
         <MouseGlow />
 
-        <div className="fixed inset-0 -z-30 opacity-40">
+        <div className="fixed inset-0 -z-30 hidden opacity-40 sm:block">
           <div
             className="absolute inset-0 blur-3xl"
             style={{
@@ -147,7 +138,7 @@ export default function RootLayout({
         <ProgressBar />
         <Navigation />
 
-        <main className="relative z-10 pt-24">{children}</main>
+        <main className="relative z-10 pb-24 pt-24 sm:pb-0">{children}</main>
         <Footer />
 
         <Script

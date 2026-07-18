@@ -37,7 +37,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden px-4 pb-16 pt-24 sm:px-6 sm:pt-28 lg:pt-32"
+      className="relative overflow-hidden px-4 pb-16 pt-8 sm:px-6 sm:pt-28 lg:pt-32"
     >
       <div
         aria-hidden="true"
@@ -65,10 +65,10 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-[clamp(2.8rem,8vw,5.6rem)] font-semibold leading-[0.96] tracking-tight text-white"
+              className="text-[clamp(2.35rem,12vw,5.6rem)] font-semibold leading-[0.96] tracking-tight text-white sm:text-[clamp(2.8rem,8vw,5.6rem)]"
             >
               <span className="block text-white/92">Funny guy with a</span>
-              <span className="relative mt-1 inline-flex flex-wrap items-center gap-2 whitespace-nowrap text-gradient text-[clamp(2.2rem,5vw,4rem)]">
+              <span className="relative mt-1 inline-flex flex-wrap items-center gap-2 text-gradient text-[clamp(1.75rem,9vw,4rem)] sm:whitespace-nowrap sm:text-[clamp(2.2rem,5vw,4rem)]">
                 <span className="absolute inset-x-[-1.2rem] top-1/2 -z-10 -translate-y-1/2"></span>
                 <span className="relative z-10">Frontend obsession</span>
                 <span className="inline-flex justify-center items-center gap-1.5 text-brand-signal">
@@ -199,16 +199,16 @@ export default function Hero() {
 
           <div className="absolute inset-x-0 bottom-0 z-20 p-5 sm:p-6">
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="rounded-full border border-white/10 bg-black/35 px-3 py-1.5 text-xs uppercase tracking-[0.24em] text-white/70 backdrop-blur-md">
+              <div className="rounded-full border border-white/10 bg-black/70 px-3 py-1.5 text-xs uppercase tracking-[0.24em] text-white/70 sm:bg-black/35 sm:backdrop-blur-md">
                 Product-minded frontend craft
               </div>
-              <div className="rounded-full border border-white/10 bg-black/35 px-3 py-1.5 text-xs font-medium text-white/70 backdrop-blur-md">
+              <div className="rounded-full border border-white/10 bg-black/70 px-3 py-1.5 text-xs font-medium text-white/70 sm:bg-black/35 sm:backdrop-blur-md">
                 Human pulse
               </div>
             </div>
 
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              <div className="rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur-md">
+              <div className="rounded-2xl border border-white/10 bg-black/70 p-4 sm:bg-black/35 sm:backdrop-blur-md">
                 <div className="flex items-center gap-2 text-brand-signal">
                   <LayoutPanelTop className="h-4 w-4" />
                   <span className="text-xs uppercase tracking-[0.24em]">
@@ -221,7 +221,7 @@ export default function Hero() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur-md">
+              <div className="rounded-2xl border border-white/10 bg-black/70 p-4 sm:bg-black/35 sm:backdrop-blur-md">
                 <div className="flex items-center gap-2 text-brand-primary">
                   <Code2 className="h-4 w-4" />
                   <span className="text-xs uppercase tracking-[0.24em]">

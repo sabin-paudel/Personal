@@ -1,5 +1,5 @@
 export const tooltips = {
-  github: "Where I store my bugs... I mean, code ",
+  github: "Where I store my bugs... ",
   linkedin: "Professional me (I promise I'm fun) ",
   twitter: "Hot takes and cold coffee ",
   email: "Let's build something cool together ",

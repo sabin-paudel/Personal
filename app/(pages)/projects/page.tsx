@@ -102,18 +102,18 @@ export default function Projects() {
             transition={{ duration: 0.55 }}
             className="section-shell overflow-hidden"
           >
-            <div className="relative min-h-[240px] overflow-hidden border-b border-white/10">
+            <div className="relative min-h-[300px] overflow-hidden border-b border-white/10 sm:min-h-[240px]">
               <OptimizedImage
                 src={activeProject.image}
                 alt={activeProject.title}
                 width={1600}
                 height={900}
-                className="h-full min-h-[240px] w-full object-cover opacity-70"
+                className="h-full min-h-[300px] w-full object-cover opacity-70 sm:min-h-[240px]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.1),rgba(0,0,0,0.82))]" />
 
-              <div className="absolute left-0 top-0 flex w-full items-start justify-between gap-4 p-5 sm:p-6">
-                <div className="max-w-[70%]">
+              <div className="absolute left-0 top-0 flex w-full flex-col items-start gap-4 p-5 sm:flex-row sm:justify-between sm:p-6">
+                <div className="max-w-full sm:max-w-[70%]">
                   <p className="text-xs uppercase tracking-[0.24em] text-white/55">
                     Sabin Paudel Project X-Ray
                   </p>
@@ -122,7 +122,7 @@ export default function Projects() {
                   </h2>
                 </div>
 
-                <div className="flex rounded-full border border-white/10 bg-black/35 p-1 backdrop-blur-md">
+                <div className="flex rounded-full border border-white/10 bg-black/70 p-1 sm:bg-black/35 sm:backdrop-blur-md">
                   <TabButton
                     active={view === "story"}
                     label="Story"
@@ -264,14 +264,14 @@ export default function Projects() {
                     setView("story");
                   }}
                   className={[
-                    "group w-full rounded-[1.5rem] border p-4 text-left transition-all",
+                    "group w-full rounded-[1.5rem] border p-3 text-left transition-all sm:p-4",
                     isActive
                       ? "border-white/20 bg-white/[0.06]"
                       : "border-white/10 bg-white/[0.03] hover:border-white/16 hover:bg-white/[0.05]",
                   ].join(" ")}
                 >
-                  <div className="flex gap-4">
-                    <div className="relative h-24 w-28 shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-black/20 sm:h-28 sm:w-32">
+                  <div className="flex flex-col gap-4 sm:flex-row">
+                    <div className="relative h-40 w-full shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-black/20 sm:h-28 sm:w-32">
                       <OptimizedImage
                         src={project.image}
                         alt={project.title}
@@ -300,7 +300,7 @@ export default function Projects() {
                         {project.description}
                       </p>
 
-                      <div className="mt-4 flex items-center gap-2">
+                      <div className="mt-4 flex flex-wrap items-center gap-2">
                         <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/60">
                           STORY
                         </span>

@@ -93,11 +93,11 @@ body {
 
 @layer utilities {
   .glass {
-    @apply border border-white/10 bg-white/5 backdrop-blur-xl;
+    @apply bg-white/5 backdrop-blur-xl;
   }
 
   .glass-dark {
-    @apply border border-white/10 bg-black/40 backdrop-blur-xl;
+    @apply bg-black/40 backdrop-blur-xl;
   }
 
   .app-bg {
@@ -108,19 +108,19 @@ body {
   }
 
   .surface {
-    @apply border border-white/10 bg-white/[0.03] backdrop-blur-xl;
+    @apply bg-white/[0.03] backdrop-blur-xl;
   }
 
   .surface-strong {
-    @apply border border-white/12 bg-white/[0.05] backdrop-blur-xl;
+    @apply bg-white/[0.05] backdrop-blur-xl;
   }
 
   .section-shell {
-    @apply rounded-[2rem] border border-white/10 bg-white/[0.03] shadow-[0_24px_80px_rgba(0,0,0,0.35)];
+    @apply rounded-[2rem] bg-white/[0.03] shadow-[0_24px_80px_rgba(0,0,0,0.28)];
   }
 
   .section-kicker {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs uppercase tracking-[0.28em] text-white/70;
+    @apply inline-flex items-center gap-2 rounded-full bg-white/[0.05] px-4 py-2 text-xs uppercase tracking-[0.28em] text-white/70;
   }
 
   .brand-link {
@@ -238,6 +238,33 @@ body {
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+@media (max-width: 639px) {
+  .glass,
+  .glass-dark,
+  .surface,
+  .surface-strong {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .section-shell {
+    box-shadow: none;
+  }
+
+  .lamp-beam {
+    width: 100vw;
+    height: 55vh;
+    filter: none;
+  }
+
+  .animate-spin,
+  .animate-ping,
+  .animate-pulse,
+  .animate-float {
+    animation: none !important;
+  }
 }
 
 ::-webkit-scrollbar {

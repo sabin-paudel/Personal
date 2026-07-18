@@ -2,20 +2,19 @@
 
 import { motion } from "framer-motion";
 import {
+  ArrowUpRight,
   Calendar,
-  Coffee,
+  Github,
+  Instagram,
+  Linkedin,
   Mail,
   MapPin,
-  MessageCircle,
   Phone,
   Sparkles,
 } from "lucide-react";
 
-import Tooltip from "@/app/components/ui/Tooltip";
 import OptimizedImage from "@/app/components/ui/OptimizedImage";
-import { SOCIAL_LINKS } from "@/app/lib/constants/social";
 import { LOCATION } from "@/app/lib/constants/location";
-import { tooltips, type TooltipKey } from "@/app/lib/data/tooltips";
 
 export default function Contact() {
   const city = LOCATION.city;
@@ -89,16 +88,16 @@ export default function Contact() {
 
             <div className="absolute inset-x-0 bottom-0 z-20 p-5 sm:p-6">
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <div className="rounded-full border border-white/10 bg-black/35 px-3 py-1.5 text-xs uppercase tracking-[0.24em] text-white/70 backdrop-blur-md">
+                <div className="rounded-full border border-white/10 bg-black/70 px-3 py-1.5 text-xs uppercase tracking-[0.24em] text-white/70 sm:bg-black/35 sm:backdrop-blur-md">
                   Product-minded frontend craft
                 </div>
-                <div className="rounded-full border border-white/10 bg-black/35 px-3 py-1.5 text-xs font-medium text-white/70 backdrop-blur-md">
+                <div className="rounded-full border border-white/10 bg-black/70 px-3 py-1.5 text-xs font-medium text-white/70 sm:bg-black/35 sm:backdrop-blur-md">
                   Human pulse
                 </div>
               </div>
 
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur-md">
+                <div className="rounded-2xl border border-white/10 bg-black/70 p-4 sm:bg-black/35 sm:backdrop-blur-md">
                   <div className="flex items-center gap-2 text-brand-signal">
                     <Sparkles className="h-4 w-4" />
                     <span className="text-xs uppercase tracking-[0.24em]">
@@ -110,7 +109,7 @@ export default function Contact() {
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur-md">
+                <div className="rounded-2xl border border-white/10 bg-black/70 p-4 sm:bg-black/35 sm:backdrop-blur-md">
                   <div className="flex items-center gap-2 text-brand-primary">
                     <MapPin className="h-4 w-4" />
                     <span className="text-xs uppercase tracking-[0.24em]">
@@ -134,7 +133,7 @@ export default function Contact() {
               viewport={{ once: true }}
               className="section-shell p-6 sm:p-8"
             >
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex flex-col items-start gap-4 sm:flex-row sm:justify-between">
                 <div className="space-y-3">
                   <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs uppercase tracking-[0.24em] text-white/55">
                     <Mail className="h-3.5 w-3.5 text-brand-primary" />
@@ -149,15 +148,25 @@ export default function Contact() {
                   </p>
                 </div>
 
-                <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/60">
-                  Response time: usually within 24 hours
+                <div className="group relative isolate flex max-w-full items-center gap-2.5 overflow-hidden rounded-full bg-[linear-gradient(110deg,rgba(91,124,255,0.22),rgba(255,107,44,0.16))] px-4 py-2.5 text-sm font-medium text-white/90 shadow-[0_10px_35px_rgba(91,124,255,0.14)] sm:shrink-0">
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 -z-10 translate-x-[-110%] bg-[linear-gradient(100deg,transparent,rgba(255,255,255,0.14),transparent)] transition-transform duration-700 group-hover:translate-x-[110%]"
+                  />
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-55" />
+                    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]" />
+                  </span>
+                  <span className="leading-5">
+                    Response time: faster than her replies
+                  </span>
                 </div>
               </div>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <a
                   href="mailto:paudelsabin0@gmail.com"
-                  className="inline-flex items-center gap-2 rounded-full bg-[color:var(--brand-primary)] px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                  className="inline-flex max-w-full items-center gap-2 break-all rounded-full bg-[color:var(--brand-primary)] px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
                 >
                   paudelsabin0@gmail.com
                   <Mail className="h-4 w-4" />
@@ -196,33 +205,32 @@ export default function Contact() {
               viewport={{ once: true }}
               className="section-shell p-6 sm:p-8"
             >
-              <h2 className="text-2xl font-semibold text-white">
-                Other ways to connect
-              </h2>
+              <h2 className="text-2xl font-semibold text-white">Take action</h2>
               <p className="mt-3 max-w-xl text-sm leading-7 text-white/72">
-                Because email is not always the most convenient option.
+                Choose the next step that works best for you.
               </p>
 
               <div className="mt-6 space-y-3">
-                <ActionRow
-                  icon={<Coffee className="h-5 w-5 text-brand-primary" />}
-                  title="Virtual Coffee"
-                  body="Casual chat about tech, life, or anything interesting."
-                  cta="Grab a cup"
+                <ActionLink
+                  href="https://github.com/sabin-paudel"
+                  icon={<Github className="h-5 w-5 text-brand-primary" />}
+                  title="View GitHub"
+                  body="Explore repositories and recent code."
+                  external
                 />
-                <ActionRow
-                  icon={
-                    <MessageCircle className="h-5 w-5 text-brand-primary" />
-                  }
-                  title="Quick DM"
-                  body="Reach out on social if that’s easier."
-                  cta="Super fast"
+                <ActionLink
+                  href="https://linkedin.com/in/sabin-paudel-702580254"
+                  icon={<Linkedin className="h-5 w-5 text-brand-signal" />}
+                  title="Connect on LinkedIn"
+                  body="View my professional profile and experience."
+                  external
                 />
-                <ActionRow
-                  icon={<Phone className="h-5 w-5 text-brand-signal" />}
-                  title="Quick Call"
-                  body="Schedule a 15-minute video chat to discuss your project."
-                  cta="Book a slot"
+                <ActionLink
+                  href="https://instagram.com/sabinpaudel_"
+                  icon={<Instagram className="h-5 w-5 text-brand-primary" />}
+                  title="Follow on Instagram"
+                  body="See updates and moments beyond work."
+                  external
                 />
               </div>
             </motion.div>
@@ -263,21 +271,28 @@ function InfoCard({
   );
 }
 
-function ActionRow({
+function ActionLink({
+  href,
   icon,
   title,
   body,
-  cta,
+  external = false,
 }: {
+  href: string;
   icon: React.ReactNode;
   title: string;
   body: string;
-  cta: string;
+  external?: boolean;
 }) {
   return (
-    <div className="flex items-start justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+    <a
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+      className="group flex items-center justify-between gap-4 rounded-2xl bg-white/[0.04] p-4 transition-colors hover:bg-white/[0.075]"
+    >
       <div className="flex min-w-0 gap-3">
-        <div className="rounded-xl border border-white/10 bg-white/[0.04] p-3">
+        <div className="rounded-xl bg-white/[0.06] p-3">
           {icon}
         </div>
         <div className="min-w-0">
@@ -286,9 +301,7 @@ function ActionRow({
         </div>
       </div>
 
-      <span className="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs uppercase tracking-[0.22em] text-white/55">
-        {cta}
-      </span>
-    </div>
+      <ArrowUpRight className="h-5 w-5 shrink-0 text-white/45 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white" />
+    </a>
   );
 }

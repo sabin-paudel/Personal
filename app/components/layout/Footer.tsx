@@ -4,12 +4,14 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Coffee, Code2 } from "lucide-react";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import confetti from "canvas-confetti";
 
 import MagneticWrapper from "@/app/components/animations/MagneticWrapper";
 import { SOCIAL_LINKS } from "@/app/lib/constants/social";
 
 export default function Footer() {
+  const pathname = usePathname();
   const [clicks, setClicks] = useState(0);
   const currentYear = new Date().getFullYear();
 
@@ -26,10 +28,12 @@ export default function Footer() {
     }
   };
 
+  if (pathname !== "/") return null;
+
   return (
-    <footer className="mt-16 border-t border-white/10">
+    <footer className="mt-6 bg-[#070707]">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12">
-        <div className="section-shell grid gap-8 p-6 sm:p-8 lg:grid-cols-[1.1fr_0.9fr_0.9fr]">
+        <div className="grid gap-10 py-6 sm:py-8 lg:grid-cols-[1.1fr_0.9fr_0.9fr]">
           <div className="space-y-4">
             <motion.button
               onClick={handleLogoClick}
@@ -86,7 +90,7 @@ export default function Footer() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-2.5 text-sm text-white/82 transition-colors hover:bg-white/[0.06]"
+                      className="inline-flex items-center gap-2 rounded-full bg-[#141414] px-4 py-2.5 text-sm text-white/82 transition-colors hover:bg-[#1c1c1c]"
                       aria-label={social.name}
                       title={social.tooltip}
                     >
@@ -100,9 +104,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-4 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-4 flex flex-col gap-3 pt-6 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} Sabin Paudel. All rights reserved.</p>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2 sm:flex-nowrap">
             <span>Made with</span>
             <Coffee className="h-4 w-4 text-brand-signal" />
             <span>and</span>

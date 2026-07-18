@@ -2,35 +2,6 @@ import { type Project } from "@/app/types";
 
 const projects: Project[] = [
   {
-    id: "1",
-    title: "E-Commerce Platform",
-    description:
-      "A full-stack shopping system with clear product flows and admin control.",
-    longDescription:
-      "Built a complete e-commerce solution with React, featuring inventory sync, checkout flows, and an admin dashboard shaped for daily operations.",
-    image: "/projects/ecommerce.png",
-    tags: ["React", "Node.js", "Stripe", "MongoDB"],
-    liveUrl: null,
-    githubUrl: "https://github.com/sabin-paudel/SaShop",
-    featured: true,
-    storyPoints: [
-      "Designed around repeat purchases, not just a polished homepage.",
-      "Kept admin workflows visible so business decisions stay fast.",
-      "Balanced a lightweight frontend with transactional backend logic.",
-    ],
-    xray: {
-      challenge:
-        "Turn product browsing, cart changes, and checkout into one coherent flow without cluttering the interface.",
-      approach:
-        "Used a modular UI with focused states for catalog, cart, and dashboard actions so the app stays predictable under load.",
-      impact:
-        "The result is a system that feels simple for shoppers and practical for operators at the same time.",
-      stackFocus: ["React", "Node.js", "Stripe", "MongoDB"],
-      notes:
-        "Best example of product thinking, data flow, and front-end structure working together.",
-    },
-  },
-  {
     id: "2",
     title: "Zone XVI Website",
     description:
@@ -57,6 +28,35 @@ const projects: Project[] = [
       stackFocus: ["React", "Content structure", "Responsive UI"],
       notes:
         "Good example of content-first design with a very small technical footprint.",
+    },
+  },
+  {
+    id: "1",
+    title: "E-Commerce Platform",
+    description:
+      "A full-stack shopping system with clear product flows and admin control.",
+    longDescription:
+      "Built a complete e-commerce solution with React, featuring inventory sync, checkout flows, and an admin dashboard shaped for daily operations.",
+    image: "/projects/ecommerce.png",
+    tags: ["React", "Node.js", "Stripe", "MongoDB"],
+    liveUrl: null,
+    githubUrl: "https://github.com/sabin-paudel/SaShop",
+    featured: true,
+    storyPoints: [
+      "Designed around repeat purchases, not just a polished homepage.",
+      "Kept admin workflows visible so business decisions stay fast.",
+      "Balanced a lightweight frontend with transactional backend logic.",
+    ],
+    xray: {
+      challenge:
+        "Turn product browsing, cart changes, and checkout into one coherent flow without cluttering the interface.",
+      approach:
+        "Used a modular UI with focused states for catalog, cart, and dashboard actions so the app stays predictable under load.",
+      impact:
+        "The result is a system that feels simple for shoppers and practical for operators at the same time.",
+      stackFocus: ["React", "Node.js", "Stripe", "MongoDB"],
+      notes:
+        "Best example of product thinking, data flow, and front-end structure working together.",
     },
   },
   {

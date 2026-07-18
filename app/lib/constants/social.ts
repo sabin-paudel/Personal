@@ -5,7 +5,7 @@ export const SOCIAL_LINKS = [
     name: 'GitHub',
     href: 'https://github.com/sabin-paudel',
     icon: Github,
-    tooltip: "Where I store my bugs... I mean, code",
+    tooltip: "Where I store my bugs...",
   },
   {
     name: 'LinkedIn',

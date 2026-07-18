@@ -1,8 +1,24 @@
 "use client";
 
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function ProgressBar() {
+  const [showProgress, setShowProgress] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 640px)");
+    const updateVisibility = () => setShowProgress(mediaQuery.matches);
+
+    updateVisibility();
+    mediaQuery.addEventListener("change", updateVisibility);
+    return () => mediaQuery.removeEventListener("change", updateVisibility);
+  }, []);
+
+  return showProgress ? <DesktopProgressBar /> : null;
+}
+
+function DesktopProgressBar() {
   const { scrollYProgress } = useScroll();
 
   const scaleX = useSpring(scrollYProgress, {

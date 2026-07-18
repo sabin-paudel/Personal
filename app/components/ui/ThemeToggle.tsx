@@ -49,7 +49,7 @@ export default function ThemeToggle({ inline = false }: ThemeToggleProps) {
             exit={{ rotate: 90, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <Sun className="h-5 w-5 text-brand-signal" />
+            <Sun className="h-6 w-6 text-brand-signal sm:h-5 sm:w-5" />
           </motion.div>
         ) : (
           <motion.div
@@ -59,7 +59,7 @@ export default function ThemeToggle({ inline = false }: ThemeToggleProps) {
             exit={{ rotate: -90, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <Moon className="h-5 w-5 text-brand-primary" />
+            <Moon className="h-6 w-6 text-brand-primary sm:h-5 sm:w-5" />
           </motion.div>
         )}
       </AnimatePresence>

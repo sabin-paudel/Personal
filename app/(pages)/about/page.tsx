@@ -192,13 +192,37 @@ export default function About() {
                 </h2>
               </motion.div>
 
-              <div className="mt-6 space-y-4">
-                {workExperience.map((job) => (
+              <div className="relative mt-6 space-y-5 pl-8">
+                <div
+                  aria-hidden="true"
+                  className="absolute bottom-6 left-[7px] top-6 w-px bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(91,124,255,0.65))]"
+                />
+                {workExperience.map((job) => {
+                  const isCurrent = job.period.includes("Present");
+
+                  return (
                   <motion.article
                     key={job.title}
                     variants={itemVariants}
-                    className="rounded-2xl border border-white/10 bg-white/3 p-5 transition-colors hover:border-white/16 hover:bg-white/5"
+                    className="relative rounded-2xl bg-white/3 p-5 transition-colors hover:bg-white/5"
                   >
+                    <span
+                      aria-hidden="true"
+                      className={`absolute -left-[2.05rem] flex h-4 w-4 items-center justify-center ${
+                        isCurrent ? "top-6" : "top-4"
+                      }`}
+                    >
+                      {isCurrent && (
+                        <span className="absolute h-4 w-4 animate-ping rounded-full bg-brand-primary/55" />
+                      )}
+                      <span
+                        className={`relative h-3 w-3 rounded-full ${
+                          isCurrent
+                            ? "bg-brand-primary shadow-[0_0_14px_rgba(91,124,255,0.9)]"
+                            : "bg-white/35"
+                        }`}
+                      />
+                    </span>
                     <div className="flex flex-wrap items-start justify-between gap-3">
                       <div>
                         <p className="text-lg font-semibold text-white">
@@ -216,7 +240,8 @@ export default function About() {
                       {job.description}
                     </p>
                   </motion.article>
-                ))}
+                  );
+                })}
               </div>
             </motion.section>
 
@@ -237,13 +262,35 @@ export default function About() {
                 </h2>
               </motion.div>
 
-              <div className="mt-6 space-y-3">
-                {studies.map((item) => (
+              <div className="relative mt-6 space-y-3 pl-8">
+                <div
+                  aria-hidden="true"
+                  className="absolute bottom-6 left-[7px] top-6 w-px bg-[linear-gradient(180deg,rgba(91,124,255,0.65),rgba(255,255,255,0.16))]"
+                />
+                {studies.map((item) => {
+                  const isCurrent = item.title === "Bachelor in CSIT";
+
+                  return (
                   <motion.article
                     key={item.title}
                     variants={itemVariants}
-                    className="rounded-2xl border border-white/10 bg-white/3 p-5"
+                    className="relative rounded-2xl bg-white/3 p-5 transition-colors hover:bg-white/5"
                   >
+                    <span
+                      aria-hidden="true"
+                      className="absolute -left-[2.05rem] top-4 flex h-4 w-4 items-center justify-center"
+                    >
+                      {isCurrent && (
+                        <span className="absolute h-4 w-4 animate-ping rounded-full bg-brand-primary/55" />
+                      )}
+                      <span
+                        className={`relative h-3 w-3 rounded-full ${
+                          isCurrent
+                            ? "bg-brand-primary shadow-[0_0_14px_rgba(91,124,255,0.9)]"
+                            : "bg-white/35"
+                        }`}
+                      />
+                    </span>
                     <div className="flex flex-wrap items-start justify-between gap-3">
                       <div>
                         <p className="text-base font-semibold text-white">
@@ -258,7 +305,8 @@ export default function About() {
                       </span>
                     </div>
                   </motion.article>
-                ))}
+                  );
+                })}
               </div>
             </motion.section>
           </div>
@@ -297,15 +345,17 @@ export default function About() {
                         LucideIcons.Code2;
 
                       return (
-                        <div
+                        <motion.div
                           key={skill}
-                          className="rounded-2xl border border-white/10 bg-white/3 p-4"
+                          className="group cursor-default rounded-2xl bg-white/3 p-4"
                         >
-                          <Icon className="h-5 w-5 text-brand-primary" />
-                          <p className="mt-4 text-sm font-medium text-white">
+                          <span className="relative inline-flex p-2 transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
+                            <Icon className="h-5 w-5 text-brand-primary" />
+                          </span>
+                          <p className="relative mt-3 text-sm font-medium text-white">
                             {skill}
                           </p>
-                        </div>
+                        </motion.div>
                       );
                     })}
                   </div>
