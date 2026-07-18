@@ -9,7 +9,6 @@ import Navigation from "@/app/components/layout/Navigation";
 import Footer from "@/app/components/layout/Footer";
 import MouseGlow from "@/app/components/layout/MouseGlow";
 import ProgressBar from "@/app/components/ui/ProgressBar";
-import BubbleLoader from "./loading";
 import { cn } from "@/app/lib/utils/cn";
 
 const timeFont = Azeret_Mono({
@@ -117,8 +116,6 @@ export default function RootLayout({
       )}
     >
       <body className="antialiased app-bg text-foreground overflow-x-hidden transition-colors duration-300">
-        <BubbleLoader />
-
         <div aria-hidden="true" className="lamp-shell" />
         <div aria-hidden="true" className="lamp-beam" />
 
@@ -138,7 +135,7 @@ export default function RootLayout({
         <ProgressBar />
         <Navigation />
 
-        <main className="relative z-10 pb-24 pt-24 sm:pb-0">{children}</main>
+        <main className="relative z-10 pb-24 pt-0 sm:pb-0 sm:pt-24">{children}</main>
         <Footer />
 
         <Script

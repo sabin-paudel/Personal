@@ -1,8 +1,24 @@
 "use client";
 
 import { useMousePosition } from "@/app/lib/hooks/useMousePosition";
+import { useEffect, useState } from "react";
 
 export default function MousePointer() {
+  const [showGlow, setShowGlow] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
+    const updateVisibility = () => setShowGlow(mediaQuery.matches);
+
+    updateVisibility();
+    mediaQuery.addEventListener("change", updateVisibility);
+    return () => mediaQuery.removeEventListener("change", updateVisibility);
+  }, []);
+
+  return showGlow ? <DesktopMouseGlow /> : null;
+}
+
+function DesktopMouseGlow() {
   const { x, y } = useMousePosition();
 
   return (

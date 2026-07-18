@@ -1,20 +1,24 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { format } from "date-fns";
 
-export function useTime(formatString: string = "hh:mm:ss") {
-  const [time, setTime] = useState<string>(() =>
-    format(new Date(), formatString),
-  );
+function formatTime(date: Date) {
+  const hours = date.getHours() % 12 || 12;
+  return [hours, date.getMinutes(), date.getSeconds()]
+    .map((value) => String(value).padStart(2, "0"))
+    .join(":");
+}
+
+export function useTime() {
+  const [time, setTime] = useState<string>(() => formatTime(new Date()));
 
   useEffect(() => {
     const interval = window.setInterval(() => {
-      setTime(format(new Date(), formatString));
+      setTime(formatTime(new Date()));
     }, 1000);
 
     return () => window.clearInterval(interval);
-  }, [formatString]);
+  }, []);
 
   return time;
 }

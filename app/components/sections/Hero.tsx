@@ -37,7 +37,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden px-4 pb-16 pt-8 sm:px-6 sm:pt-28 lg:pt-32"
+      className="relative overflow-hidden px-4 pb-16 pt-8 sm:px-6 sm:pt-8 lg:pt-12"
     >
       <div
         aria-hidden="true"

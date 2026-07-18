@@ -2,11 +2,27 @@
 
 import { motion } from "framer-motion";
 import { Clock3 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { useTime } from "@/app/lib/hooks/useTime";
 
 export default function SystemBar() {
-  const time = useTime("hh:mm:ss");
+  const [showSystemBar, setShowSystemBar] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+    const updateVisibility = () => setShowSystemBar(mediaQuery.matches);
+
+    updateVisibility();
+    mediaQuery.addEventListener("change", updateVisibility);
+    return () => mediaQuery.removeEventListener("change", updateVisibility);
+  }, []);
+
+  return showSystemBar ? <DesktopSystemBar /> : null;
+}
+
+function DesktopSystemBar() {
+  const time = useTime();
 
   const [hours, minutes, seconds] = time.split(":");
 
