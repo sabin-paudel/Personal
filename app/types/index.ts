@@ -3,6 +3,7 @@ export interface Project {
   title: string;
   description: string;
   longDescription: string;
+  role: string;
   image: string;
   tags: string[];
   liveUrl?: string | null;

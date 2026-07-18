@@ -71,7 +71,7 @@ export default function ContactOpenGraphImage() {
               textTransform: "uppercase",
             }}
           >
-            Aatreya
+            Portfolio
           </div>
           <div
             style={{

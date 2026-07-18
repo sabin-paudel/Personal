@@ -71,7 +71,7 @@ export default function ProjectsOpenGraphImage() {
               textTransform: "uppercase",
             }}
           >
-            Aatreya
+            Portfolio
           </div>
           <div
             style={{

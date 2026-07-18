@@ -137,6 +137,40 @@ export default function HomeSections() {
                 <p className="max-w-2xl text-sm leading-7 text-white/70">
                   {project.longDescription}
                 </p>
+                <dl className="grid gap-4 rounded-2xl bg-black/15 p-4 sm:grid-cols-2">
+                  <div>
+                    <dt className="text-xs uppercase tracking-[0.2em] text-white/45">
+                      My role
+                    </dt>
+                    <dd className="mt-2 text-sm leading-6 text-white/72">
+                      {project.role}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs uppercase tracking-[0.2em] text-white/45">
+                      Problem
+                    </dt>
+                    <dd className="mt-2 text-sm leading-6 text-white/72">
+                      {project.xray.challenge}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs uppercase tracking-[0.2em] text-white/45">
+                      Implementation
+                    </dt>
+                    <dd className="mt-2 text-sm leading-6 text-white/72">
+                      {project.xray.approach}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs uppercase tracking-[0.2em] text-white/45">
+                      Outcome
+                    </dt>
+                    <dd className="mt-2 text-sm leading-6 text-white/72">
+                      {project.xray.impact}
+                    </dd>
+                  </div>
+                </dl>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.slice(0, 4).map((tag) => (
                     <span
@@ -151,7 +185,7 @@ export default function HomeSections() {
                   href="/projects"
                   className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary"
                 >
-                  View all projects
+                  Explore {project.title}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>

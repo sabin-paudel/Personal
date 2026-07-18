@@ -51,7 +51,7 @@ export default function Projects() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
 
@@ -227,7 +227,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 rounded-full bg-[color:var(--brand-primary)] px-4 py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
                     >
-                      View project
+                      View {activeProject.title}
                       <ArrowUpRight className="h-4 w-4" />
                     </Link>
                   )}

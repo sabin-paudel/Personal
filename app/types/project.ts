@@ -8,6 +8,7 @@ const projects: Project[] = [
       "A community website built to organize events, identity, and updates.",
     longDescription:
       "Designed and developed a community website for Zone XVI with event discovery, club profiles, and reusable content sections for future growth.",
+    role: "Design and frontend development",
     image: "/projects/projectone.png",
     tags: ["React"],
     liveUrl: "https://zonexvi.vercel.app",
@@ -37,6 +38,7 @@ const projects: Project[] = [
       "A full-stack shopping system with clear product flows and admin control.",
     longDescription:
       "Built a complete e-commerce solution with React, featuring inventory sync, checkout flows, and an admin dashboard shaped for daily operations.",
+    role: "Full-stack development",
     image: "/projects/ecommerce.png",
     tags: ["React", "Node.js", "Stripe", "MongoDB"],
     liveUrl: null,
@@ -66,6 +68,7 @@ const projects: Project[] = [
       "A secure signature workflow with verification and audit-friendly structure.",
     longDescription:
       "Created a digital signature platform using React, enabling secure document signing with verification steps and audit trails.",
+    role: "Frontend and backend development",
     image: "/projects/projecttwo.png",
     tags: ["React", "Node.js", "MongoDB"],
     liveUrl: "https://digital-signature.vercel.app",
@@ -94,6 +97,7 @@ const projects: Project[] = [
       "A weather dashboard focused on quick scans and location-aware forecasts.",
     longDescription:
       "Designed an intuitive weather app with location-based forecasts, weather maps, and small data visualizations that make the forecast easy to read.",
+    role: "Frontend design and development",
     image: "/projects/weather.png",
     tags: ["React", "TypeScript", "Weather API", "Chart.js"],
     liveUrl: null,

@@ -24,6 +24,11 @@ const homeStructuredData = {
       url: siteUrl,
       image: `${siteUrl}/picofme.png`,
       sameAs: personSameAs,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Pokhara",
+        addressCountry: "NP",
+      },
     },
     {
       "@type": "ProfilePage",
@@ -55,7 +60,7 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(homeStructuredData),
+          __html: JSON.stringify(homeStructuredData).replace(/</g, "\\u003c"),
         }}
       />
       <Hero />
