@@ -1,14 +1,15 @@
 import Hero from "@/app/components/sections/Hero";
 import HomeSections from "@/app/components/sections/HomeSections";
 import { SOCIAL_LINKS } from "@/app/lib/constants/social";
+import { Metadata } from "next";
 
-const siteUrl = "https://sabinpaudel.com.np";
+const siteUrl = "https://www.sabinpaudel.com.np";
 const personId = `${siteUrl}/#person`;
 const websiteId = `${siteUrl}/#website`;
 const profilePageId = `${siteUrl}/#profile-page`;
 
-const personSameAs = SOCIAL_LINKS.filter(
-  (link) => link.href.startsWith("https://"),
+const personSameAs = SOCIAL_LINKS.filter((link) =>
+  link.href.startsWith("https://"),
 ).map((link) => link.href);
 
 const homeStructuredData = {
@@ -52,6 +53,15 @@ const homeStructuredData = {
       inLanguage: "en",
     },
   ],
+};
+
+export const metadata: Metadata = {
+  title: "Sabin Paudel | Frontend Developer",
+  description:
+    "Frontend Developer from Pokhara, Nepal building modern web applications with React, Next.js, and TypeScript.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function Home() {

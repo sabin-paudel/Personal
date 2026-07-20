@@ -24,7 +24,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sabinpaudel.com.np"),
+  metadataBase: new URL("https://www.sabinpaudel.com.np"),
 
   title: {
     default: "Sabin Paudel | Frontend Developer",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "Explore Sabin Paudel’s portfolio, featuring modern React, Next.js, and TypeScript applications, thoughtful frontend systems, selected projects, and development experience from Pokhara, Nepal.",
 
   applicationName: "Sabin Paudel Portfolio",
-  authors: [{ name: "Sabin Paudel", url: "https://sabinpaudel.com.np" }],
+  authors: [{ name: "Sabin Paudel", url: "https://www.sabinpaudel.com.np" }],
   creator: "Sabin Paudel",
   publisher: "Sabin Paudel",
   category: "technology",
@@ -43,17 +43,12 @@ export const metadata: Metadata = {
 
   keywords: [
     "Sabin Paudel",
-    "Sabin Paudel portfolio",
-    "Sabin Paudel frontend developer",
+    "frontend developer",
     "Frontend Developer Nepal",
     "Frontend Developer Pokhara",
     "React Developer Nepal",
     "Next.js Developer Nepal",
-    "TypeScript Developer",
-    "JavaScript Developer",
-    "Tailwind CSS Developer",
     "Web Developer Nepal",
-    "Portfolio Website",
     "Modern Web Applications",
     "SEO Friendly Web Development",
   ],
@@ -81,14 +76,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "/",
+    url: "https://www.sabinpaudel.com.np",
     title: "Sabin Paudel | Frontend Developer",
     description:
       "Explore Sabin Paudel’s portfolio, featuring modern React, Next.js, and TypeScript applications, thoughtful frontend systems, selected projects, and development experience from Pokhara, Nepal.",
     siteName: "Sabin Paudel Portfolio",
     images: [
       {
-        url: "/opengraph-image",
+        url: "https://www.sabinpaudel.com.np/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Sabin Paudel - Frontend Developer",
@@ -101,7 +96,7 @@ export const metadata: Metadata = {
     title: "Sabin Paudel | Frontend Developer",
     description:
       "Explore Sabin Paudel’s portfolio, featuring modern React, Next.js, and TypeScript applications, thoughtful frontend systems, selected projects, and development experience from Pokhara, Nepal.",
-    images: ["/opengraph-image"],
+    images: ["https://www.sabinpaudel.com.np/opengraph-image"],
   },
 };
 
@@ -139,7 +134,9 @@ export default function RootLayout({
         <ProgressBar />
         <Navigation />
 
-        <main className="relative z-10 pb-24 pt-0 sm:pb-0 sm:pt-24">{children}</main>
+        <main className="relative z-10 pb-24 pt-0 sm:pb-0 sm:pt-24">
+          {children}
+        </main>
         <Footer />
 
         <Script
