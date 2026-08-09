@@ -101,15 +101,6 @@ export default function About() {
               </div>
             </div>
 
-            <div className="mt-6 rounded-2xl border border-white/10 bg-white/3 p-4">
-              <p className="text-xs uppercase tracking-[0.24em] text-white/45">
-                Current focus
-              </p>
-              <p className="mt-3 text-sm leading-6 text-white/72">
-                Shipping thoughtful React and Next.js experiences with a strong
-                attention to architecture, speed, and detail.
-              </p>
-            </div>
           </motion.div>
 
           <motion.div

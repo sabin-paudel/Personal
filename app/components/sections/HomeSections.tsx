@@ -2,7 +2,15 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, Layers3, Sparkles, Wand2 } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Code2,
+  Github,
+  Layers3,
+  Sparkles,
+  Wand2,
+} from "lucide-react";
 
 import { getFeaturedProjects } from "@/app/types/project";
 import OptimizedImage from "@/app/components/ui/OptimizedImage";
@@ -29,7 +37,7 @@ export default function HomeSections() {
   const featuredProjects = getFeaturedProjects();
 
   return (
-    <div className="mx-auto max-w-7xl space-y-24 px-4 pb-8 sm:px-6 lg:space-y-32">
+    <div className="mx-auto max-w-7xl space-y-28 px-4 pb-8 sm:px-6 lg:space-y-36">
       <section className="rounded-[2rem] bg-white/[0.025] p-6 sm:p-8 sm:shadow-[0_24px_80px_rgba(0,0,0,0.22)] lg:p-10">
         <div className="max-w-3xl space-y-4">
           <div className="section-kicker w-fit">
@@ -45,7 +53,7 @@ export default function HomeSections() {
           </p>
         </div>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-3">
           {principleCards.map((card, index) => {
             const Icon = card.icon;
 
@@ -56,7 +64,7 @@ export default function HomeSections() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.45, delay: index * 0.06 }}
-                className="rounded-2xl bg-white/[0.035] p-5 transition-colors hover:bg-white/[0.055]"
+                className="rounded-2xl bg-white/[0.035] p-6 transition-colors hover:bg-white/[0.055]"
               >
                 <div className="flex items-center gap-3">
                   <div className="rounded-xl bg-white/[0.06] p-3">
@@ -74,7 +82,7 @@ export default function HomeSections() {
           })}
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-10 flex flex-wrap gap-3">
           <Link
             href="/about"
             className="inline-flex items-center gap-2 rounded-full bg-(--brand-primary) px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
@@ -92,25 +100,49 @@ export default function HomeSections() {
         </div>
       </section>
 
-      <section className="space-y-6">
-        <div className="max-w-3xl space-y-3">
-          <div className="section-kicker w-fit">
-            <Sparkles className="h-3.5 w-3.5 text-brand-signal" />
-            <span>Selected work</span>
+      <section className="space-y-8">
+        <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <div className="max-w-3xl space-y-3">
+            <div className="section-kicker w-fit">
+              <Sparkles className="h-3.5 w-3.5 text-brand-signal" />
+              <span>Selected work</span>
+            </div>
+            <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Selected work
+            </h2>
+            <p className="max-w-2xl text-base leading-7 text-white/72">
+              A selection of React and Next.js projects I have designed and
+              built.
+            </p>
           </div>
-          <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            Selected work
-          </h2>
-          <p className="max-w-2xl text-base leading-7 text-white/72">
-            Projects with context, tradeoffs, and the decisions behind them.
-          </p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.45 }}
+            className="shrink-0 lg:pb-1"
+          >
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-55" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              </span>
+              <span className="text-xs uppercase tracking-[0.24em] text-white/55">
+                Currently building
+              </span>
+            </div>
+            <p className="mt-2 text-sm font-medium text-white/80">
+              Production React + Next.js applications
+            </p>
+          </motion.div>
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-2">
+        <div className="grid gap-6 lg:grid-cols-2">
           {featuredProjects.map((project) => (
             <article
               key={project.id}
-              className="overflow-hidden rounded-[2rem] bg-white/[0.03] transition-transform duration-300 sm:shadow-[0_24px_70px_rgba(0,0,0,0.24)] sm:hover:-translate-y-1"
+              className="flex flex-col overflow-hidden rounded-[2rem] bg-white/[0.03] transition-transform duration-300 sm:shadow-[0_24px_70px_rgba(0,0,0,0.24)] sm:hover:-translate-y-1"
             >
               <div className="relative aspect-16/10 overflow-hidden bg-white/3">
                 <OptimizedImage
@@ -120,57 +152,14 @@ export default function HomeSections() {
                   className="opacity-70"
                 />
               </div>
-              <div className="space-y-4 p-6">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.24em] text-white/45">
-                      Featured project
-                    </p>
-                    <h3 className="mt-2 text-2xl font-semibold text-white">
-                      {project.title}
-                    </h3>
-                  </div>
-                  <span className="rounded-full bg-white/[0.06] px-3 py-1 text-xs uppercase tracking-[0.22em] text-white/60">
-                    X-Ray
-                  </span>
-                </div>
+              <div className="flex flex-1 flex-col gap-4 p-6 sm:p-8">
+                <h3 className="text-2xl font-semibold text-white">
+                  {project.title}
+                </h3>
                 <p className="max-w-2xl text-sm leading-7 text-white/70">
                   {project.longDescription}
                 </p>
-                <dl className="grid gap-4 rounded-2xl bg-black/15 p-4 sm:grid-cols-2">
-                  <div>
-                    <dt className="text-xs uppercase tracking-[0.2em] text-white/45">
-                      My role
-                    </dt>
-                    <dd className="mt-2 text-sm leading-6 text-white/72">
-                      {project.role}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs uppercase tracking-[0.2em] text-white/45">
-                      Problem
-                    </dt>
-                    <dd className="mt-2 text-sm leading-6 text-white/72">
-                      {project.xray.challenge}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs uppercase tracking-[0.2em] text-white/45">
-                      Implementation
-                    </dt>
-                    <dd className="mt-2 text-sm leading-6 text-white/72">
-                      {project.xray.approach}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs uppercase tracking-[0.2em] text-white/45">
-                      Outcome
-                    </dt>
-                    <dd className="mt-2 text-sm leading-6 text-white/72">
-                      {project.xray.impact}
-                    </dd>
-                  </div>
-                </dl>
+
                 <div className="flex flex-wrap gap-2">
                   {project.tags.slice(0, 4).map((tag) => (
                     <span
@@ -181,19 +170,43 @@ export default function HomeSections() {
                     </span>
                   ))}
                 </div>
-                <Link
-                  href="/projects"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary"
-                >
-                  Explore {project.title}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+
+                <div className="mt-auto flex flex-wrap items-center gap-3 pt-2">
+                  {project.liveUrl && (
+                    <Link
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary transition-opacity hover:opacity-80"
+                    >
+                      Live demo
+                      <ArrowUpRight className="h-4 w-4" />
+                    </Link>
+                  )}
+                  {project.githubUrl && (
+                    <Link
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-white/72 transition-opacity hover:opacity-90"
+                    >
+                      <Github className="h-4 w-4" />
+                      Source
+                    </Link>
+                  )}
+                  <Link
+                    href="/projects"
+                    className="ml-auto inline-flex items-center gap-2 text-sm font-semibold text-white/60 transition-opacity hover:opacity-90"
+                  >
+                    Details
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
               </div>
             </article>
           ))}
         </div>
       </section>
-
     </div>
   );
 }

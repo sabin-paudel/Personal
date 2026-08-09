@@ -4,9 +4,8 @@ A bold, motion-rich personal portfolio built with Next.js 16, React 19, TypeScri
 
 This project showcases a full-stack developer profile with:
 - immersive UI animations
-- bilingual content (English + Nepali)
-- interactive mini-games on the home page
 - modern project and contact experiences
+- SEO-friendly, location-aware content
 
 ## Live Site
 
@@ -14,15 +13,11 @@ This project showcases a full-stack developer profile with:
 
 ## Highlights
 
-- App Router architecture with reusable sections and feature components
-- EN/NP language toggle with client-side persistence (`localStorage`)
+- App Router architecture with reusable sections and components
 - Dynamic, animated pages powered by Framer Motion
-- Three mini-games on the home page:
-	- Arcade Aim Challenge
-	- Pattern Memory Rush
-	- Fun Astrology Oracle
 - Rich portfolio sections for about, projects, and contact
 - Typed data-driven content for easier maintenance
+- Semantic HTML with Schema.org structured data for SEO
 
 ## Tech Stack
 
@@ -33,12 +28,11 @@ This project showcases a full-stack developer profile with:
 - Animation: Framer Motion
 - Icons: Lucide React
 - Effects: canvas-confetti
-- Date/Time utilities: date-fns
 - Linting: ESLint 9 + eslint-config-next
 
 ## Routes
 
-- `/` - Hero + mini-games hub
+- `/` - Hero + working principles + selected work
 - `/about` - Profile, experience, studies, skills
 - `/projects` - Featured project cards
 - `/contact` - Contact and social links
@@ -49,14 +43,12 @@ This project showcases a full-stack developer profile with:
 app/
 	layout.tsx                # Global shell, metadata, providers
 	page.tsx                  # Home page composition
-	loading.tsx               # Custom animated loader
 	(pages)/
 		about/page.tsx
 		projects/page.tsx
 		contact/page.tsx
 	components/
 		sections/               # Large page sections (Hero, etc.)
-		features/               # Home mini-game components
 		layout/                 # System bar, navigation, footer, effects
 		ui/                     # Reusable UI primitives
 	lib/
@@ -115,31 +107,7 @@ npm run start
 
 ### Update Projects
 
-- `app/types/project.ts` - localized project list (`en` + `np`)
-
-### Update Translations
-
-- `app/lib/i18n/translations.ts` - all translation strings
-- `app/lib/i18n/LanguageProvider.tsx` - language context/state handling
-
-### Update Home Mini-Games
-
-- `app/components/features/HomeArcadeGame.tsx`
-- `app/components/features/HomeMemoryGame.tsx`
-- `app/components/features/HomeFunAstrologyGame.tsx`
-
-## Internationalization (i18n)
-
-This project uses a lightweight custom i18n setup.
-
-- Supported locales: `en`, `np`
-- Language is stored in `localStorage` under the key `language`
-- UI text is accessed via `useLanguage()` in client components
-
-When adding new UI text:
-1. Add keys for both `en` and `np` in `app/lib/i18n/translations.ts`.
-2. Consume with `const { t } = useLanguage()`.
-3. For localized data sets, follow the existing `getAboutData(locale)` / `getProjects(locale)` pattern.
+- `app/types/project.ts` - project list, descriptions, links
 
 ## Notes
 

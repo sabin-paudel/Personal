@@ -27,12 +27,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.sabinpaudel.com.np"),
 
   title: {
-    default: "Sabin Paudel | Frontend Developer",
+    default: "Sabin Paudel | Frontend Developer in Pokhara, Nepal",
     template: "%s | Sabin Paudel",
   },
 
   description:
-    "Explore Sabin Paudel’s portfolio, featuring modern React, Next.js, and TypeScript applications, thoughtful frontend systems, selected projects, and development experience from Pokhara, Nepal.",
+    "Sabin Paudel is a frontend developer in Pokhara, Nepal, building fast, accessible web applications with React, Next.js, and TypeScript. Explore his portfolio of projects, skills, and experience.",
 
   applicationName: "Sabin Paudel Portfolio",
   authors: [{ name: "Sabin Paudel", url: "https://www.sabinpaudel.com.np" }],
@@ -44,13 +44,15 @@ export const metadata: Metadata = {
   keywords: [
     "Sabin Paudel",
     "frontend developer",
-    "Frontend Developer Nepal",
-    "Frontend Developer Pokhara",
-    "React Developer Nepal",
-    "Next.js Developer Nepal",
-    "Web Developer Nepal",
-    "Modern Web Applications",
-    "SEO Friendly Web Development",
+    "frontend developer Pokhara",
+    "frontend developer Nepal",
+    "React developer",
+    "Next.js developer",
+    "TypeScript developer",
+    "frontend engineer",
+    "web developer Nepal",
+    "React.js developer Nepal",
+    "Next.js developer Nepal",
   ],
 
   verification: {
@@ -77,25 +79,25 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://www.sabinpaudel.com.np",
-    title: "Sabin Paudel | Frontend Developer",
+    title: "Sabin Paudel | Frontend Developer in Pokhara, Nepal",
     description:
-      "Explore Sabin Paudel’s portfolio, featuring modern React, Next.js, and TypeScript applications, thoughtful frontend systems, selected projects, and development experience from Pokhara, Nepal.",
+      "Sabin Paudel is a frontend developer in Pokhara, Nepal, building fast, accessible web applications with React, Next.js, and TypeScript.",
     siteName: "Sabin Paudel Portfolio",
     images: [
       {
         url: "https://www.sabinpaudel.com.np/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Sabin Paudel - Frontend Developer",
+        alt: "Sabin Paudel - Frontend Developer in Pokhara, Nepal",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Sabin Paudel | Frontend Developer",
+    title: "Sabin Paudel | Frontend Developer in Pokhara, Nepal",
     description:
-      "Explore Sabin Paudel’s portfolio, featuring modern React, Next.js, and TypeScript applications, thoughtful frontend systems, selected projects, and development experience from Pokhara, Nepal.",
+      "Sabin Paudel is a frontend developer in Pokhara, Nepal, building fast, accessible web applications with React, Next.js, and TypeScript.",
     images: ["https://www.sabinpaudel.com.np/opengraph-image"],
   },
 };
@@ -115,7 +117,6 @@ export default function RootLayout({
       )}
     >
       <body className="antialiased app-bg text-foreground overflow-x-hidden transition-colors duration-300">
-        <div aria-hidden="true" className="lamp-shell" />
         <div aria-hidden="true" className="lamp-beam" />
 
         <MouseGlow />
@@ -134,9 +135,7 @@ export default function RootLayout({
         <ProgressBar />
         <Navigation />
 
-        <main className="relative z-10 pb-24 pt-0 sm:pb-0 sm:pt-24">
-          {children}
-        </main>
+        <main className="relative z-10  pt-0 ">{children}</main>
         <Footer />
 
         <Script

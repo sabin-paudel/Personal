@@ -3,12 +3,13 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Sabin Paudel for frontend development, React and Next.js projects, freelance work, or collaboration opportunities.",
+    "Contact Sabin Paudel, a frontend developer in Pokhara, Nepal, for React and Next.js projects, freelance work, or collaboration opportunities.",
   keywords: [
     "contact Sabin Paudel",
     "hire frontend developer",
     "freelance React developer",
     "Next.js developer Nepal",
+    "frontend developer Pokhara",
     "Sabin Paudel contact",
   ],
   alternates: {
@@ -19,9 +20,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Contact | Sabin Paudel",
+    title: "Contact Sabin Paudel | Frontend Developer in Pokhara, Nepal",
     description:
-      "Get in touch with Sabin Paudel for web development and collaboration opportunities.",
+      "Get in touch with Sabin Paudel, a frontend developer in Pokhara, Nepal, for web development and collaboration opportunities.",
     url: "/contact",
     type: "website",
     siteName: "Sabin Paudel Portfolio",
@@ -36,11 +37,30 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact | Sabin Paudel",
+    title: "Contact Sabin Paudel | Frontend Developer in Pokhara, Nepal",
     description:
-      "Get in touch with Sabin Paudel for web development and collaboration opportunities.",
+      "Get in touch with Sabin Paudel, a frontend developer in Pokhara, Nepal, for web development and collaboration opportunities.",
     images: ["/contact/opengraph-image"],
   },
+};
+
+const breadcrumbStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.sabinpaudel.com.np/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Contact",
+      item: "https://www.sabinpaudel.com.np/contact",
+    },
+  ],
 };
 
 export default function ContactLayout({
@@ -48,5 +68,18 @@ export default function ContactLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbStructuredData).replace(
+            /</g,
+            "\\u003c",
+          ),
+        }}
+      />
+      {children}
+    </>
+  );
 }

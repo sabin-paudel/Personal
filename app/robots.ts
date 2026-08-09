@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://sabinpaudel.com.np/sitemap.xml",
-    host: "https://sabinpaudel.com.np",
+    sitemap: "https://www.sabinpaudel.com.np/sitemap.xml",
+    host: "https://www.sabinpaudel.com.np",
   };
 }

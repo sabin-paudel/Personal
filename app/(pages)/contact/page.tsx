@@ -74,7 +74,7 @@ export default function Contact() {
             className="relative min-h-96 overflow-hidden rounded-4xl border border-white/10 bg-black/20 sm:min-h-[28rem] lg:min-h-[32rem]"
           >
             <OptimizedImage
-              src="/contact.png"
+              src="/imagecp.png"
               alt="Sabin Paudel portrait"
               fill
               priority
@@ -95,32 +95,6 @@ export default function Contact() {
                   Human pulse
                 </div>
               </div>
-
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-white/10 bg-black/70 p-4 sm:bg-black/35 sm:backdrop-blur-md">
-                  <div className="flex items-center gap-2 text-brand-signal">
-                    <Sparkles className="h-4 w-4" />
-                    <span className="text-xs uppercase tracking-[0.24em]">
-                      React + Next.js
-                    </span>
-                  </div>
-                  <p className="mt-3 text-sm leading-6 text-white/76">
-                    Modern web applications with a calm, product-minded feel.
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-black/70 p-4 sm:bg-black/35 sm:backdrop-blur-md">
-                  <div className="flex items-center gap-2 text-brand-primary">
-                    <MapPin className="h-4 w-4" />
-                    <span className="text-xs uppercase tracking-[0.24em]">
-                      Pokhara, Nepal
-                    </span>
-                  </div>
-                  <p className="mt-3 text-sm leading-6 text-white/76">
-                    Available for freelance work and thoughtful collaborations.
-                  </p>
-                </div>
-              </div>
             </div>
           </motion.div>
         </header>
@@ -135,11 +109,8 @@ export default function Contact() {
             >
               <div className="flex flex-col items-start gap-4 sm:flex-row sm:justify-between">
                 <div className="space-y-3">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs uppercase tracking-[0.24em] text-white/55">
-                    <Mail className="h-3.5 w-3.5 text-brand-primary" />
-                    Drop me a line
-                  </div>
-                  <h2 className="text-2xl font-semibold text-white sm:text-3xl">
+                  <h2 className="inline-flex items-center gap-2.5 text-2xl font-semibold text-white sm:text-3xl">
+                    <Mail className="h-5 w-5 text-brand-primary" />
                     Drop me a line
                   </h2>
                   <p className="max-w-2xl text-sm leading-7 text-white/72 sm:text-base">
@@ -292,9 +263,7 @@ function ActionLink({
       className="group flex items-center justify-between gap-4 rounded-2xl bg-white/[0.04] p-4 transition-colors hover:bg-white/[0.075]"
     >
       <div className="flex min-w-0 gap-3">
-        <div className="rounded-xl bg-white/[0.06] p-3">
-          {icon}
-        </div>
+        <div className="rounded-xl bg-white/[0.06] p-3">{icon}</div>
         <div className="min-w-0">
           <h3 className="text-base font-semibold text-white">{title}</h3>
           <p className="mt-1 text-sm leading-6 text-white/68">{body}</p>

@@ -1,8 +1,8 @@
 const profile = {
   name: "Sabin Paudel",
   role: "Frontend Developer",
-  location: "Pokhara, Nepal 🇳🇵",
-  image: "/image.png",
+  location: "Pokhara, Nepal ",
+  image: "/about.png",
 } as const;
 
 export const socialLinks = [
@@ -13,14 +13,17 @@ export const socialLinks = [
 ];
 
 const introduction = `
-I’m Sabin Paudel, a frontend developer from Pokhara, Nepal, focused on React,
-Next.js, TypeScript, and modern web applications.
+I’m Sabin Paudel, a frontend developer based in Pokhara, Nepal. I specialize in
+building modern web applications with React, Next.js, and TypeScript — from
+marketing sites and community platforms to full e-commerce systems.
 
-I like turning complex product ideas into clear, maintainable interfaces with
-careful structure, strong performance, and enough motion to feel alive.
+My work focuses on interfaces that are fast, responsive, and accessible. I care
+about clear information hierarchy, sensible performance budgets, and code that
+stays easy to maintain as a product grows.
 
-Right now I’m building practical frontend systems and refining the way I ship
-work that is easy to use and easy to trust.
+I’m currently working as a frontend developer in Pokhara, contributing to
+production React and Next.js applications, and I enjoy turning complex product
+ideas into interfaces that are simple to use and simple to extend.
 `;
 
 const workExperience = [

@@ -21,10 +21,17 @@ const homeStructuredData = {
       name: "Sabin Paudel",
       jobTitle: "Frontend Developer",
       description:
-        "Frontend Developer from Pokhara, Nepal building modern web applications with React, Next.js, and TypeScript.",
+        "Frontend developer in Pokhara, Nepal building fast, accessible web applications with React, Next.js, and TypeScript.",
       url: siteUrl,
       image: `${siteUrl}/picofme.png`,
       sameAs: personSameAs,
+      knowsAbout: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Web Development",
+        "UI Engineering",
+      ],
       address: {
         "@type": "PostalAddress",
         addressLocality: "Pokhara",
@@ -34,10 +41,10 @@ const homeStructuredData = {
     {
       "@type": "ProfilePage",
       "@id": profilePageId,
-      name: "Sabin Paudel | Frontend Developer",
+      name: "Sabin Paudel | Frontend Developer in Pokhara, Nepal",
       url: siteUrl,
       description:
-        "Portfolio profile for Sabin Paudel, a frontend developer from Pokhara, Nepal.",
+        "Portfolio profile for Sabin Paudel, a frontend developer in Pokhara, Nepal.",
       mainEntity: { "@id": personId },
       about: { "@id": personId },
       inLanguage: "en",
@@ -56,9 +63,9 @@ const homeStructuredData = {
 };
 
 export const metadata: Metadata = {
-  title: "Sabin Paudel | Frontend Developer",
+  title: "Sabin Paudel | Frontend Developer in Pokhara, Nepal",
   description:
-    "Frontend Developer from Pokhara, Nepal building modern web applications with React, Next.js, and TypeScript.",
+    "Sabin Paudel is a frontend developer in Pokhara, Nepal, building fast, accessible web applications with React, Next.js, and TypeScript.",
   alternates: {
     canonical: "/",
   },

@@ -9,14 +9,6 @@ export interface Project {
   liveUrl?: string | null;
   githubUrl?: string | null;
   featured: boolean;
-  storyPoints: string[];
-  xray: {
-    challenge: string;
-    approach: string;
-    impact: string;
-    stackFocus: string[];
-    notes: string;
-  };
 }
 
 export interface Skill {
