@@ -10,7 +10,6 @@ import {
   Mail,
   MapPin,
   Phone,
-  Sparkles,
 } from "lucide-react";
 
 import OptimizedImage from "@/app/components/ui/OptimizedImage";
@@ -36,7 +35,6 @@ export default function Contact() {
               viewport={{ once: true }}
               className="section-kicker"
             >
-              <Sparkles className="h-3.5 w-3.5 text-brand-signal" />
               <span>Let’s connect</span>
             </motion.div>
 
@@ -89,10 +87,7 @@ export default function Contact() {
             <div className="absolute inset-x-0 bottom-0 z-20 p-5 sm:p-6">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="rounded-full border border-white/10 bg-black/70 px-3 py-1.5 text-xs uppercase tracking-[0.24em] text-white/70 sm:bg-black/35 sm:backdrop-blur-md">
-                  Product-minded frontend craft
-                </div>
-                <div className="rounded-full border border-white/10 bg-black/70 px-3 py-1.5 text-xs font-medium text-white/70 sm:bg-black/35 sm:backdrop-blur-md">
-                  Human pulse
+                  You’re Still Here?
                 </div>
               </div>
             </div>
@@ -119,14 +114,14 @@ export default function Contact() {
                   </p>
                 </div>
 
-                <div className="group relative isolate flex max-w-full items-center gap-2.5 overflow-hidden rounded-full bg-[linear-gradient(110deg,rgba(91,124,255,0.22),rgba(255,107,44,0.16))] px-4 py-2.5 text-sm font-medium text-white/90 shadow-[0_10px_35px_rgba(91,124,255,0.14)] sm:shrink-0">
+                <div className="group relative isolate flex max-w-full items-center gap-2.5 overflow-hidden rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-white/90 sm:shrink-0">
                   <span
                     aria-hidden="true"
                     className="absolute inset-0 -z-10 translate-x-[-110%] bg-[linear-gradient(100deg,transparent,rgba(255,255,255,0.14),transparent)] transition-transform duration-700 group-hover:translate-x-[110%]"
                   />
                   <span className="relative flex h-2.5 w-2.5">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-55" />
-                    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]" />
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-55" />
+                    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-white" />
                   </span>
                   <span className="leading-5">
                     Response time: faster than her replies
@@ -137,7 +132,7 @@ export default function Contact() {
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <a
                   href="mailto:paudelsabin0@gmail.com"
-                  className="inline-flex max-w-full items-center gap-2 break-all rounded-full bg-[color:var(--brand-primary)] px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                  className="inline-flex max-w-full items-center gap-2 break-all rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition-transform hover:-translate-y-0.5"
                 >
                   paudelsabin0@gmail.com
                   <Mail className="h-4 w-4" />

@@ -75,7 +75,7 @@ export default function Footer() {
   if (pathname !== "/") return null;
 
   return (
-    <footer className="mt-6 bg-[#070707]">
+    <footer className="mt-6 bg-black">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12">
         <div className="grid gap-10 py-6 sm:py-8 lg:grid-cols-[1.1fr_0.9fr_0.9fr]">
           <div className="space-y-4">

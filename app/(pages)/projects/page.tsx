@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github, Sparkles } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
 
 import { getProjects } from "@/app/types/project";
 import OptimizedImage from "@/app/components/ui/OptimizedImage";
@@ -57,7 +57,6 @@ export default function Projects() {
               viewport={{ once: true }}
               className="section-kicker w-fit"
             >
-              <Sparkles className="h-3.5 w-3.5 text-brand-signal" />
               <span>Selected work</span>
             </motion.div>
 
@@ -112,9 +111,7 @@ export default function Projects() {
                   </p>
                 </div>
                 <div className="flex items-baseline justify-between gap-4 px-5 py-4">
-                  <p className="text-base font-semibold text-white">
-                    Frontend
-                  </p>
+                  <p className="text-base font-semibold text-white">Frontend</p>
                   <p className="text-[11px] uppercase tracking-[0.2em] text-white/45">
                     Primary focus
                   </p>
@@ -186,7 +183,7 @@ export default function Projects() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full bg-[color:var(--brand-primary)] px-4 py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                      className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-black transition-transform hover:-translate-y-0.5"
                     >
                       Live demo
                       <ArrowUpRight className="h-4 w-4" />

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --brand-primary: #5b7cff;
-  --brand-signal: #ff6b2c;
+  --brand-primary: #ffffff;
+  --brand-signal: #ffffff;
 
   --color-background: hsl(0 0% 98%);
   --color-foreground: hsl(0 0% 10%);
@@ -44,7 +44,7 @@
 }
 
 @theme {
-  --color-background: hsl(0 0% 4%);
+  --color-background: #000000;
   --color-foreground: hsl(0 0% 96%);
   --color-card: hsl(0 0% 6%);
   --color-card-foreground: hsl(0 0% 96%);
@@ -85,10 +85,7 @@
 
 body {
   cursor: default;
-  background:
-    radial-gradient(circle at 18% 15%, rgba(91, 124, 255, 0.08), transparent 28%),
-    radial-gradient(circle at 82% 18%, rgba(255, 107, 44, 0.06), transparent 24%),
-    linear-gradient(180deg, #080808 0%, #050505 100%);
+  background: #000000;
 }
 
 @layer utilities {
@@ -101,10 +98,7 @@ body {
   }
 
   .app-bg {
-    background:
-      radial-gradient(circle at 18% 15%, rgba(91, 124, 255, 0.08), transparent 28%),
-      radial-gradient(circle at 82% 18%, rgba(255, 107, 44, 0.06), transparent 24%),
-      linear-gradient(180deg, #080808 0%, #050505 100%);
+    background: #000000;
   }
 
   .surface {

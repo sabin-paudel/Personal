@@ -121,16 +121,6 @@ export default function RootLayout({
 
         <MouseGlow />
 
-        <div className="fixed inset-0 -z-30 hidden opacity-40 sm:block">
-          <div
-            className="absolute inset-0 blur-3xl"
-            style={{
-              background:
-                "radial-gradient(circle at 18% 20%, rgba(91, 124, 255, 0.12), transparent 35%), radial-gradient(circle at 82% 18%, rgba(255, 107, 44, 0.08), transparent 28%)",
-            }}
-          />
-        </div>
-
         <SystemBar />
         <ProgressBar />
         <Navigation />

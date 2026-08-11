@@ -186,7 +186,7 @@ export default function About() {
               <div className="relative mt-6 space-y-5 pl-8">
                 <div
                   aria-hidden="true"
-                  className="absolute bottom-6 left-[7px] top-6 w-px bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(91,124,255,0.65))]"
+                  className="absolute bottom-6 left-[7px] top-6 w-px bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(255,255,255,0.65))]"
                 />
                 {workExperience.map((job) => {
                   const isCurrent = job.period.includes("Present");
@@ -256,7 +256,7 @@ export default function About() {
               <div className="relative mt-6 space-y-3 pl-8">
                 <div
                   aria-hidden="true"
-                  className="absolute bottom-6 left-[7px] top-6 w-px bg-[linear-gradient(180deg,rgba(91,124,255,0.65),rgba(255,255,255,0.16))]"
+                  className="absolute bottom-6 left-[7px] top-6 w-px bg-[linear-gradient(180deg,rgba(255,255,255,0.65),rgba(255,255,255,0.16))]"
                 />
                 {studies.map((item) => {
                   const isCurrent = item.title === "Bachelor in CSIT";

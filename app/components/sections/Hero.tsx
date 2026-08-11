@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronRight, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 
 import OptimizedImage from "../ui/OptimizedImage";
 
@@ -12,15 +12,6 @@ export default function Hero() {
       id="home"
       className="relative overflow-hidden px-4 pb-16 pt-10 sm:px-6 sm:pt-10 lg:pb-20 lg:pt-8"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 opacity-80"
-        style={{
-          background:
-            "radial-gradient(circle at 18% 12%, rgba(91, 124, 255, 0.1), transparent 24%), radial-gradient(circle at 82% 16%, rgba(255, 107, 44, 0.08), transparent 22%)",
-        }}
-      />
-
       <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.25fr_0.95fr] lg:items-center lg:gap-14">
         <div className="order-2 space-y-8 sm:order-none lg:space-y-10">
           <motion.div
@@ -29,7 +20,6 @@ export default function Hero() {
             transition={{ duration: 0.7 }}
             className="section-kicker w-fit"
           >
-            <Sparkles className="h-3.5 w-3.5 text-brand-signal hidden lg:block" />
             <span className="whitespace-nowrap">
               Sabin Paudel · Frontend Developer
             </span>
@@ -43,7 +33,7 @@ export default function Hero() {
           >
             <span className="block ">Building fast,</span>
             <span className="block ">
-              <span className="text-blue-900 ">thoughtful</span> digital
+              <span className="text-white">thoughtful</span> digital
             </span>
             <span className="block text-gradient ">experiences.</span>
           </motion.h1>
@@ -94,7 +84,7 @@ export default function Hero() {
           >
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 rounded-full bg-(--brand-primary) px-5 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition-transform duration-300 hover:-translate-y-0.5"
             >
               View projects
               <ArrowRight className="h-4 w-4" />
@@ -121,7 +111,7 @@ export default function Hero() {
               alt="Sabin Paudel portrait"
               fill
               priority
-              className="absolute inset-0 z-0 object-cover object-[50%_18%]"
+              className="absolute inset-0 z-0 object-cover object-[50%_18%] "
             />
 
             <div
@@ -132,7 +122,7 @@ export default function Hero() {
             <div className="absolute inset-x-0 bottom-0 z-20 p-5 sm:p-6">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="rounded-full border border-white/10 bg-black/70 px-3 py-1.5 text-xs uppercase tracking-[0.24em] text-white/70 sm:bg-black/35 sm:backdrop-blur-md">
-                  Product-minded frontend craft
+                  At Least Someone Is Looking.{" "}
                 </div>
               </div>
             </div>

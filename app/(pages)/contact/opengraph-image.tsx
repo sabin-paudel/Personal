@@ -16,7 +16,7 @@ export default function ContactOpenGraphImage() {
         display: "flex",
         position: "relative",
         overflow: "hidden",
-        background: "linear-gradient(180deg, #070707 0%, #050505 100%)",
+        background: "#000000",
         color: "#fff",
         fontFamily: 'Inter, "SF Pro Display", "Segoe UI", sans-serif',
       }}
@@ -26,7 +26,7 @@ export default function ContactOpenGraphImage() {
           position: "absolute",
           inset: 0,
           background:
-            "radial-gradient(circle at 18% 18%, rgba(91, 124, 255, 0.24), transparent 28%), radial-gradient(circle at 82% 16%, rgba(255, 107, 44, 0.16), transparent 24%), radial-gradient(circle at 50% 100%, rgba(255,255,255,0.08), transparent 35%)",
+            "radial-gradient(circle at 18% 18%, rgba(255,255,255,0.08), transparent 28%), radial-gradient(circle at 82% 16%, rgba(255,255,255,0.06), transparent 24%), radial-gradient(circle at 50% 100%, rgba(255,255,255,0.08), transparent 35%)",
         }}
       />
       <div
