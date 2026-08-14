@@ -3,16 +3,16 @@ import { type Project } from "@/app/types";
 const projects: Project[] = [
   {
     id: "1",
-    title: "Full-Stack E-Commerce Platform",
+    title: "SlangHub",
     description:
-      "A full-stack shopping system with product flows and admin control.",
+      "A modern Gen Z slang dictionary built for discovering and understanding internet slang.",
     longDescription:
-      "A complete e-commerce solution with inventory sync, a checkout flow powered by Stripe, and an admin dashboard built for daily operations.",
-    role: "Full-stack development",
-    image: "/projects/ecommerce.png",
-    tags: ["React", "Node.js", "Stripe", "MongoDB"],
-    liveUrl: null,
-    githubUrl: "https://github.com/sabin-paudel/SaShop",
+      "SlangHub is a community-driven slang dictionary where users can explore, search, and discover Gen Z slang, meanings, examples, and trending terms through a fast and interactive interface.",
+    role: "Frontend design and development",
+    image: "/projects/slang.png",
+    tags: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
+    liveUrl: "https://slanghub.vercel.app/",
+    githubUrl: null,
     featured: true,
   },
   {
@@ -27,7 +27,7 @@ const projects: Project[] = [
     tags: ["React"],
     liveUrl: "https://zonexvi.vercel.app",
     githubUrl: "https://github.com/sabin-paudel/zonexvi",
-    featured: true,
+    featured: false,
   },
   {
     id: "3",
@@ -36,7 +36,7 @@ const projects: Project[] = [
       "A secure signature workflow with verification and audit trails.",
     longDescription:
       "A digital signature platform that enables secure document signing with verification steps, signing flows, and audit-friendly history.",
-    role: "Frontend and backend development",
+    role: "Frontend ",
     image: "/projects/projecttwo.png",
     tags: ["React", "Node.js", "MongoDB"],
     liveUrl: "https://digital-signature.vercel.app",
@@ -45,17 +45,17 @@ const projects: Project[] = [
   },
   {
     id: "4",
-    title: "Location-Aware Weather Dashboard",
+    title: "CivicEye",
     description:
-      "A weather dashboard focused on quick scans and location-aware forecasts.",
+      "A civic issue reporting platform designed to help citizens report, track, and engage with local community problems.",
     longDescription:
-      "A weather app with location-based forecasts, weather maps, and small data visualizations that make the forecast easy to read at a glance.",
+      "CivicEye is a location-aware civic platform that makes it easier for citizens to report local issues, track their progress, and stay informed about problems in their community through an interactive and user-friendly interface.",
     role: "Frontend design and development",
-    image: "/projects/weather.png",
-    tags: ["React", "TypeScript", "Weather API", "Chart.js"],
-    liveUrl: null,
-    githubUrl: null,
-    featured: false,
+    image: "/projects/civiceye.png",
+    tags: ["React", "TypeScript", "Maps", "Geolocation"],
+    liveUrl: "https://civic-eye-frontend-liart.vercel.app",
+    githubUrl: "https://github.com/sabin-paudel/CivicEye-frontend",
+    featured: true,
   },
 ];
 

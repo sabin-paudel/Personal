@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 
 import OptimizedImage from "../ui/OptimizedImage";
+import { getProjects } from "@/app/types/project";
 
 export default function Hero() {
   return (
@@ -119,13 +120,7 @@ export default function Hero() {
               className="absolute inset-0 z-10 bg-[linear-gradient(180deg,rgba(5,5,5,0.12)_0%,rgba(5,5,5,0.24)_34%,rgba(5,5,5,0.72)_100%)]"
             />
 
-            <div className="absolute inset-x-0 bottom-0 z-20 p-5 sm:p-6">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <div className="rounded-full border border-white/10 bg-black/70 px-3 py-1.5 text-xs uppercase tracking-[0.24em] text-white/70 sm:bg-black/35 sm:backdrop-blur-md">
-                  At Least Someone Is Looking.{" "}
-                </div>
-              </div>
-            </div>
+            
           </div>
 
           <div className="surface m-4 rounded-2xl p-2 sm:m-3 sm:p-3">
