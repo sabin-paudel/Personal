@@ -7,9 +7,21 @@ const profile = {
 
 export const socialLinks = [
   { name: "GitHub", url: "https://github.com/sabin-paudel", icon: "github" },
-  { name: "LinkedIn", url: "https://www.linkedin.com/in/sabin-paudel10/", icon: "linkedin" },
-  { name: "Facebook", url: "https://facebook.com/paudelsabin10", icon: "facebook" },
-  { name: "Instagram", url: "https://instagram.com/sabinpaudel_", icon: "instagram" },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/sabin-paudel10/",
+    icon: "linkedin",
+  },
+  {
+    name: "Facebook",
+    url: "https://facebook.com/paudelsabin0",
+    icon: "facebook",
+  },
+  {
+    name: "Instagram",
+    url: "https://instagram.com/sabinpaudel_",
+    icon: "instagram",
+  },
 ];
 
 const introduction = `

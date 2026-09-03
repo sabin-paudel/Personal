@@ -39,7 +39,7 @@ const projects: Project[] = [
     role: "Frontend ",
     image: "/projects/projecttwo.png",
     tags: ["React", "Node.js", "MongoDB"],
-    liveUrl: "https://digital-signature.vercel.app",
+    liveUrl: "https://sign.sabinpaudel.com.np",
     githubUrl: "https://github.com/sabin-paudel/digital-signature",
     featured: false,
   },
