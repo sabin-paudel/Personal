@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "TypeScript developer",
   ],
   alternates: {
-    canonical: "/about",
+    canonical: "./",
   },
   robots: {
     index: true,
@@ -52,13 +52,13 @@ const breadcrumbStructuredData = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://www.sabinpaudel.com.np/",
+      item: "https://sabinpaudel.com.np/",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "About",
-      item: "https://www.sabinpaudel.com.np/about",
+      item: "https://sabinpaudel.com.np/about",
     },
   ],
 };

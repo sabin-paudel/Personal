@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "Sabin Paudel contact",
   ],
   alternates: {
-    canonical: "/contact",
+    canonical: "./",
   },
   robots: {
     index: true,
@@ -52,13 +52,13 @@ const breadcrumbStructuredData = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://www.sabinpaudel.com.np/",
+      item: "https://sabinpaudel.com.np/",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Contact",
-      item: "https://www.sabinpaudel.com.np/contact",
+      item: "https://sabinpaudel.com.np/contact",
     },
   ],
 };

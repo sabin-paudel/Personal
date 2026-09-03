@@ -23,7 +23,7 @@ export default function Footer() {
   const [clicks, setClicks] = useState(0);
   const [shareStatus, setShareStatus] = useState("");
   const currentYear = new Date().getFullYear();
-  const shareUrl = "https://www.sabinpaudel.com.np";
+  const shareUrl = "https://sabinpaudel.com.np";
   const shareText = "Sabin Paudel | Frontend Developer";
 
   const shareLinks = [

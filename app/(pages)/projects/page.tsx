@@ -9,7 +9,7 @@ import OptimizedImage from "@/app/components/ui/OptimizedImage";
 
 export default function Projects() {
   const projects = getProjects();
-  const siteUrl = "https://www.sabinpaudel.com.np";
+  const siteUrl = "https://sabinpaudel.com.np";
 
   const structuredData = {
     "@context": "https://schema.org",

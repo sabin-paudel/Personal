@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "Sabin Paudel is a frontend developer in Pokhara, Nepal, building fast, accessible web applications with React, Next.js, and TypeScript. Explore his portfolio of projects, skills, and experience.",
 
   applicationName: "Sabin Paudel Portfolio",
-  authors: [{ name: "Sabin Paudel", url: "https://www.sabinpaudel.com.np" }],
+  authors: [{ name: "Sabin Paudel", url: "https://sabinpaudel.com.np" }],
   creator: "Sabin Paudel",
   publisher: "Sabin Paudel",
   category: "technology",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "/",
+    canonical: "./",
   },
 
   robots: {
@@ -78,14 +78,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.sabinpaudel.com.np",
+    url: "./",
     title: "Sabin Paudel | Frontend Developer in Pokhara, Nepal",
     description:
       "Sabin Paudel is a frontend developer in Pokhara, Nepal, building fast, accessible web applications with React, Next.js, and TypeScript.",
     siteName: "Sabin Paudel Portfolio",
     images: [
       {
-        url: "https://www.sabinpaudel.com.np/opengraph-image",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Sabin Paudel - Frontend Developer in Pokhara, Nepal",
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
     title: "Sabin Paudel | Frontend Developer in Pokhara, Nepal",
     description:
       "Sabin Paudel is a frontend developer in Pokhara, Nepal, building fast, accessible web applications with React, Next.js, and TypeScript.",
-    images: ["https://www.sabinpaudel.com.np/opengraph-image"],
+    images: ["/opengraph-image"],
   },
 };
 
@@ -116,7 +116,6 @@ export default function RootLayout({
         geistSans.className,
       )}
     >
-    
       <body className="antialiased app-bg text-foreground overflow-x-hidden transition-colors duration-300">
         <div aria-hidden="true" className="lamp-beam" />
 

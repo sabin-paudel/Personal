@@ -3,7 +3,7 @@ import HomeSections from "@/app/components/sections/HomeSections";
 import { SOCIAL_LINKS } from "@/app/lib/constants/social";
 import { Metadata } from "next";
 
-const siteUrl = "https://www.sabinpaudel.com.np";
+const siteUrl = "https://sabinpaudel.com.np";
 const personId = `${siteUrl}/#person`;
 const websiteId = `${siteUrl}/#website`;
 const profilePageId = `${siteUrl}/#profile-page`;
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   description:
     "Sabin Paudel is a frontend developer in Pokhara, Nepal, building fast, accessible web applications with React, Next.js, and TypeScript.",
   alternates: {
-    canonical: "/",
+    canonical: "./",
   },
 };
 

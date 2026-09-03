@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "web developer Nepal projects",
   ],
   alternates: {
-    canonical: "/projects",
+    canonical: "./",
   },
   robots: {
     index: true,
@@ -51,13 +51,13 @@ const breadcrumbStructuredData = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://www.sabinpaudel.com.np/",
+      item: "https://sabinpaudel.com.np/",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Projects",
-      item: "https://www.sabinpaudel.com.np/projects",
+      item: "https://sabinpaudel.com.np/projects",
     },
   ],
 };
