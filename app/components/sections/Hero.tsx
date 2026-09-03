@@ -5,13 +5,12 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 
 import OptimizedImage from "../ui/OptimizedImage";
-import { getProjects } from "@/app/types/project";
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden px-4 pb-16 pt-10 sm:px-6 sm:pt-10 lg:pb-20 lg:pt-8"
+      className="relative overflow-hidden px-4 pb-16 pt-10 sm:px-6 sm:pt-10 lg:pb-20 lg:pt-8 2xl:flex 2xl:min-h-[calc(100svh-0.5rem)] 2xl:items-center 2xl:pb-20 2xl:pt-20"
     >
       <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.25fr_0.95fr] lg:items-center lg:gap-14">
         <div className="order-2 space-y-8 sm:order-none lg:space-y-10">
