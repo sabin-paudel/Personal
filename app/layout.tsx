@@ -24,7 +24,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.sabinpaudel.com.np"),
+  metadataBase: new URL("https://sabinpaudel.com.np"),
 
   title: {
     default: "Sabin Paudel | Frontend Developer in Pokhara, Nepal",
@@ -116,6 +116,7 @@ export default function RootLayout({
         geistSans.className,
       )}
     >
+    
       <body className="antialiased app-bg text-foreground overflow-x-hidden transition-colors duration-300">
         <div aria-hidden="true" className="lamp-beam" />
 
